@@ -2,19 +2,15 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function ItemDetails(props) {
-    console.log("%c id:" + props.scryfallId, "color:blue");
-    if (props.scryfallId !== undefined && props.scryfallId.length > 0) {
-        let imgSrc =
-            "https://c1.scryfall.com/file/scryfall-cards/normal/front/b/c/" +
-            props.scryfallId +
-            ".jpg";
-        return <img className="card-image" src={imgSrc}></img>;
+    console.log("%c id:" + props.loadedImageUrl, "color:blue");
+    if (props.loadedImageUrl !== undefined && props.loadedImageUrl.length > 0) {
+        return <img className="card-image" src={props.loadedImageUrl}></img>;
     }
     return <div>no data</div>;
 }
 
 ItemDetails.propTypes = {
-    scryfallId: PropTypes.string,
+    loadedImageUrl: PropTypes.string,
 };
 
 export default ItemDetails;

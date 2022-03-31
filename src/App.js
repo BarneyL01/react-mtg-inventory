@@ -5,10 +5,12 @@ import PasteBox from "./components/PasteBox";
 import ItemRow from "./components/ItemRow";
 import Papa from "papaparse";
 import ItemDetails from "./components/itemDetails";
+import axios from "axios";
 
 function App() {
     const [mainInventory, setInventory] = useState([]);
-    const [loadedId, setLoadedId] = useState("");
+    // const [loadedId, setLoadedId] = useState("");
+    const [loadedImageUrl, setLoadedImageUrl] = useState("");
     const parseCsvToInventory = (inputCsv) => {
         setInventory(Papa.parse(inputCsv, { header: true }).data);
     };
@@ -16,10 +18,21 @@ function App() {
         console.log("%c inventory:", "color:plum", { mainInventory });
     };
     // let loadedId = "";
-    const loadItem = (itemId) => {
-        console.log("%c loadItem:"+ itemId, "color:red");
-        setLoadedId(itemId)
-    }
+    const loadItem = async function (itemId) {
+        console.log("%c loadItem:" + itemId, "color:red");
+        let requestUrl = `https://api.scryfall.com/cards/${itemId}?format=json`;
+        try {
+            let response = await axios.get(requestUrl);
+
+            console.log("%c loadItem:", "color:lightgreen", {
+                d: response.data,
+            });
+            setLoadedImageUrl(response.data.image_uris.normal);
+        } catch (error) {
+            console.error({ error });
+        }
+        console.log("%c loadItem:" + itemId, "color:red");
+    };
     return (
         <div className="app flex-container">
             <div className="flex-left">
@@ -30,14 +43,17 @@ function App() {
                     <button onClick={logInventory}>Log Inventory</button>
                     <ul>
                         {mainInventory.map((item) => (
-                            <ItemRow key={item.Name} item={item} loadItem={loadItem} />
+                            <ItemRow
+                                key={item.Name}
+                                item={item}
+                                loadItem={loadItem}
+                            />
                         ))}
                     </ul>
                 </div>
             </div>
             <div className="flex-right">
-                <ItemDetails scryfallId={loadedId} />
-
+                <ItemDetails loadedImageUrl={loadedImageUrl} />
             </div>
         </div>
     );
