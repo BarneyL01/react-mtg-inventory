@@ -1,21 +1,12 @@
 import React from "react";
 import { useState } from "react";
-import Papa from "papaparse";
+import PropTypes from 'prop-types';
 
-function PasteBox() {
-    const [pasteContents, setTextarea] = useState(
-        "Hello, hello"
-    );
+function PasteBox(props) {
+    const [pasteContents, setPasteContents] = useState("Hello, hello");
 
     const handleChange = (event) => {
-        setTextarea(event.target.value);
-    };
-    // let parsedDetails = [];
-    const parseContents = () => {
-				console.log("%c pasteContents:" + pasteContents, "color:pink");
-				let parsedDetails = Papa.parse(pasteContents);
-        console.log("%c parsedDetails", "color:plum", { parsedDetails });
-				
+        setPasteContents(event.target.value);
     };
     return (
         <div>
@@ -27,9 +18,15 @@ function PasteBox() {
                 onChange={handleChange}
             ></textarea>
             <br />
-            <button onClick={parseContents}>Update</button>
+            <button onClick={() => props.onClickFunction(pasteContents)}>
+                Update
+            </button>
         </div>
     );
 }
+
+PasteBox.propTypes = {
+  onClickFunction: PropTypes.func.isRequired,
+};
 
 export default PasteBox;
