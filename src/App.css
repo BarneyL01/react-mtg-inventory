@@ -15,7 +15,7 @@
 
 .app-header {
     background-color: #282c34;
-    min-height: 70vh;
+    min-height: 10vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,6 +26,11 @@
 
 .app-link {
     color: #61dafb;
+}
+
+.paste-box {
+    padding-left: 1rem;
+    text-align: left;
 }
 
 @keyframes app-logo-spin {
@@ -52,5 +57,5 @@
 }
 
 .card-image {
-  max-width: 200px;
+    max-width: 200px;
 }

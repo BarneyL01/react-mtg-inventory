@@ -36,9 +36,10 @@ function App() {
     return (
         <div className="app flex-container">
             <div className="flex-left">
-                <header className="app-header">
+                <header className="app-header">MTG Inventory</header>
+                <div>
                     <PasteBox onClickFunction={parseCsvToInventory} />
-                </header>
+                </div>
                 <div className="inventory-section">
                     <button onClick={logInventory}>Log Inventory</button>
                     <ul>
