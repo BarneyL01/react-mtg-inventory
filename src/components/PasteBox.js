@@ -22,26 +22,22 @@ function PasteBox(props) {
                 Update
             </button>
             <h3>Import Requirements/Features</h3>
-            <p>
-                <ul>
-                    <li>CSV (comma separated values)</li>
-                    <li>First row header</li>
-                    <li>Minimum items: Name, Quantity</li>
-                    <li>
-                        Supports Scryfall data if: &#34;Scryfall ID&#34;
-                        included
-                    </li>
-                    <li>
-                        Also supports: &#34;Edition code&#34;, &#34;Mana
-                        Value&#34;, Card Text
-                    </li>
-                    <li>Custom support: &#34;Custom Image URL&#34;</li>
-                    <li>
-                        Inventory support: &#34;Location&#34; (i.e. Binder,
-                        Deck)
-                    </li>
-                </ul>
-            </p>
+            <ul>
+                <li>CSV (comma separated values)</li>
+                <li>First row header</li>
+                <li>Minimum items: Name, Quantity</li>
+                <li>
+                    Supports Scryfall data if: &#34;Scryfall ID&#34; included
+                </li>
+                <li>
+                    Also supports: &#34;Edition code&#34;, &#34;Mana Value&#34;,
+                    Card Text
+                </li>
+                <li>Custom support: &#34;Custom Image URL&#34;</li>
+                <li>
+                    Inventory support: &#34;Location&#34; (i.e. Binder, Deck)
+                </li>
+            </ul>
         </div>
     );
 }
