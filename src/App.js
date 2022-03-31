@@ -2,7 +2,7 @@ import "./App.css";
 import React from "react";
 import { useState } from "react";
 import PasteBox from "./components/PasteBox";
-import ItemRow from "./components/ItemRow";
+import ItemTable from "./components/ItemTable";
 import Papa from "papaparse";
 import ItemDetails from "./components/itemDetails";
 import axios from "axios";
@@ -19,6 +19,7 @@ function App() {
     };
     // let loadedId = "";
     const loadItem = async function (itemId) {
+        setLoadedImageUrl("");
         console.log("%c loadItem:" + itemId, "color:red");
         let requestUrl = `https://api.scryfall.com/cards/${itemId}?format=json`;
         try {
@@ -42,15 +43,7 @@ function App() {
                 </div>
                 <div className="inventory-section">
                     <button onClick={logInventory}>Log Inventory</button>
-                    <ul>
-                        {mainInventory.map((item) => (
-                            <ItemRow
-                                key={item.Name}
-                                item={item}
-                                loadItem={loadItem}
-                            />
-                        ))}
-                    </ul>
+                    <ItemTable inventory={mainInventory} loadItemFunction={loadItem}/>
                 </div>
             </div>
             <div className="flex-right">

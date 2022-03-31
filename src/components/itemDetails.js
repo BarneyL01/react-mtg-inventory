@@ -6,7 +6,7 @@ function ItemDetails(props) {
     if (props.loadedImageUrl !== undefined && props.loadedImageUrl.length > 0) {
         return <img className="card-image" src={props.loadedImageUrl}></img>;
     }
-    return <div>no data</div>;
+    return <div>loading...</div>;
 }
 
 ItemDetails.propTypes = {
