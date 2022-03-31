@@ -50,3 +50,7 @@
 .flex-right {
     width: 25%;
 }
+
+.card-image {
+  max-width: 200px;
+}

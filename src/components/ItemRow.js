@@ -1,13 +1,23 @@
 import React from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 function ItemRow(props) {
-    if (props.item !== undefined && props.item.length > 1) {
+    const lookupItem = () => {
+        if (
+            props.item !== undefined &&
+            props.item["Scryfall ID"] !== undefined
+        ) {
+						props.loadItem(props.item["Scryfall ID"]);
+        }
+    };
+    if (props.item !== undefined && props.item.Name !== undefined) {
         return (
             <li>
-                <span>{props.item[0]}</span>
-                <span>{props.item[1]}</span>
-								<span><button>Select</button></span>
+                <span>{props.item.Name}</span>
+                <span>{props.item.Quantity}</span>
+                <span>
+                    <button onClick={lookupItem}>Select</button>
+                </span>
             </li>
         );
     }
@@ -15,7 +25,8 @@ function ItemRow(props) {
 }
 
 ItemRow.propTypes = {
-  item: PropTypes.arrayOf(PropTypes.string),
+    item: PropTypes.object,
+		loadItem: PropTypes.func,
 };
 
 export default ItemRow;
