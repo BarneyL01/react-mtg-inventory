@@ -26,7 +26,7 @@ function PasteBox(props) {
             ></textarea>
             <br />
             <button onClick={() => props.onClickFunction(pasteContents)}>
-                Update
+                Import
             </button>
             <h3>Import Requirements/Features</h3>
             <ul>
