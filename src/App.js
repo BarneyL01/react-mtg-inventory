@@ -20,7 +20,7 @@ function App() {
     // let loadedId = "";
     const loadItem = async function (itemId) {
         setLoadedImageUrl("");
-        console.log("%c loadItem:" + itemId, "color:red");
+        // console.log("%c loadItem:" + itemId, "color:red");
         let requestUrl = `https://api.scryfall.com/cards/${itemId}?format=json`;
         try {
             let response = await axios.get(requestUrl);
@@ -32,7 +32,6 @@ function App() {
         } catch (error) {
             console.error({ error });
         }
-        console.log("%c loadItem:" + itemId, "color:red");
     };
     return (
         <div className="app flex-container">
