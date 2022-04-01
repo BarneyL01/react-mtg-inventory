@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import ManaValueDisplay from "./ManaValueDisplay";
 
 function ItemDetails(props) {
     if (
@@ -12,6 +13,10 @@ function ItemDetails(props) {
                 <img className="card-image" src={props.item.ImageUrl}></img>
                 <h2>{props.item.Name}</h2>
                 <div>Mana Value: {props.item.ManaValue}</div>
+                <div>
+                    Displayed:
+                    <ManaValueDisplay manaValue={props.item.ManaValue}/>
+                </div>
                 <div>Edition: {props.item.Edition}</div>
             </div>
         );
