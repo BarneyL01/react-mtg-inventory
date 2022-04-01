@@ -3,11 +3,8 @@ import PropTypes from "prop-types";
 
 function ItemRow(props) {
     const lookupItem = () => {
-        if (
-            props.item !== undefined &&
-            props.item["Scryfall ID"] !== undefined
-        ) {
-						props.loadItem(props.item["Scryfall ID"]);
+        if (props.item !== undefined && props.item.id !== undefined) {
+            props.loadItem(props.item.id);
         }
     };
     if (props.item !== undefined && props.item.Name !== undefined) {
@@ -26,7 +23,7 @@ function ItemRow(props) {
 
 ItemRow.propTypes = {
     item: PropTypes.object,
-		loadItem: PropTypes.func,
+    loadItem: PropTypes.func,
 };
 
 export default ItemRow;

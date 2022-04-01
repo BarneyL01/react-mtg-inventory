@@ -9,28 +9,40 @@ import axios from "axios";
 
 function App() {
     const [mainInventory, setInventory] = useState([]);
-    // const [loadedId, setLoadedId] = useState("");
-    const [loadedImageUrl, setLoadedImageUrl] = useState("");
+    const [selectedItem, setSelectedItem] = useState({});
     const parseCsvToInventory = (inputCsv) => {
-        setInventory(Papa.parse(inputCsv, { header: true }).data);
+        let inventory = Papa.parse(inputCsv, { header: true }).data;
+        for (let index = 0; index < inventory.length; index++) {
+            const element = inventory[index];
+            element.id = index;
+        }
+        setInventory(inventory);
     };
     const logInventory = () => {
         console.log("%c inventory:", "color:plum", { mainInventory });
     };
     // let loadedId = "";
     const loadItem = async function (itemId) {
-        setLoadedImageUrl("");
-        // console.log("%c loadItem:" + itemId, "color:red");
-        let requestUrl = `https://api.scryfall.com/cards/${itemId}?format=json`;
-        try {
-            let response = await axios.get(requestUrl);
+        setSelectedItem({});
+        let selectedItem = {};
 
-            console.log("%c loadItem:", "color:lightgreen", {
-                d: response.data,
-            });
-            setLoadedImageUrl(response.data.image_uris.normal);
-        } catch (error) {
-            console.error({ error });
+        if (mainInventory[itemId] !== undefined) {
+            selectedItem.Name = mainInventory[itemId].Name;
+            selectedItem.ManaValue = mainInventory[itemId]["Mana Value"] ?? "";
+            selectedItem.Edition = mainInventory[itemId].Edition ?? "";
+            selectedItem.ScyfallId = mainInventory[itemId]["Scryfall ID"] ?? "";
+            let requestUrl = `https://api.scryfall.com/cards/${selectedItem.ScyfallId}?format=json`;
+            try {
+                let response = await axios.get(requestUrl);
+
+                console.log("%c loadItem:", "color:lightgreen", {
+                    d: response.data,
+                });
+                selectedItem.ImageUrl = response.data.image_uris.normal;
+            } catch (error) {
+                console.error({ error });
+            }
+            setSelectedItem(selectedItem);
         }
     };
     return (
@@ -42,11 +54,14 @@ function App() {
                 </div>
                 <div className="inventory-section">
                     <button onClick={logInventory}>Log Inventory</button>
-                    <ItemTable inventory={mainInventory} loadItemFunction={loadItem}/>
+                    <ItemTable
+                        inventory={mainInventory}
+                        loadItemFunction={loadItem}
+                    />
                 </div>
             </div>
             <div className="flex-right">
-                <ItemDetails loadedImageUrl={loadedImageUrl} />
+                <ItemDetails item={selectedItem} />
             </div>
         </div>
     );

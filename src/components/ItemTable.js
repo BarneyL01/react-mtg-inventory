@@ -7,7 +7,7 @@ function ItemTable(props) {
         return (
             <ul>
                 {props.inventory.map((item) => (
-                    <ItemRow key={item.Name} item={item} loadItem={props.loadItemFunction} />
+                    <ItemRow key={item.id} item={item} loadItem={props.loadItemFunction} />
                 ))}
             </ul>
         );
