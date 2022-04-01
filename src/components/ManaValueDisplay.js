@@ -4,7 +4,6 @@ import "../../node_modules/mana-font/css/mana.min.css";
 import { iconMap } from "../utils/IconMap";
 
 function ManaValueDisplay(props) {
-    console.log("MVD:" + props.manaValue);
     let processString = props.manaValue;
     let count = 0;
     let display = [];
@@ -12,7 +11,6 @@ function ManaValueDisplay(props) {
     if (processString[0] == "{") processString = processString.substring(1);
     if (processString[processString.length - 1] === "}")
         processString = processString.substring(0, processString.length - 1);
-    console.log(processString);
     let manaSymbols = processString.split(/\}\{/);
     React.createElement("i", { key: count, className: "ms ms-1" }, null);
     manaSymbols.forEach((element) => {
