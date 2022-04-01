@@ -40,7 +40,7 @@ function PasteBox(props) {
                     Also supports: &#34;Edition code&#34;, &#34;Mana Value&#34;,
                     Card Text
                 </li>
-                <li>Custom support: &#34;Custom Image URL&#34;</li>
+                <li>Custom support: &#34;Image URL&#34;</li>
                 <li>
                     Inventory support: &#34;Location&#34; (i.e. Binder, Deck)
                 </li>

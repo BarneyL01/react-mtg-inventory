@@ -15,6 +15,7 @@ function App() {
         for (let index = 0; index < inventory.length; index++) {
             const element = inventory[index];
             element.id = index;
+            element.Quantity = parseInt(element.Quantity);
         }
         setInventory(inventory);
     };
@@ -22,18 +23,41 @@ function App() {
         console.log("%c inventory:", "color:plum", { mainInventory });
     };
     // let loadedId = "";
+    const addQuantity = (id) => {
+        mainInventory[id]["Quantity"] += 1;
+        loadItem(id);
+    };
+    const minusQuantity = (id) => {
+        // don't allow less than 1
+        mainInventory[id]["Quantity"] = Math.max(
+            1,
+            mainInventory[id]["Quantity"] - 1
+        );
+        loadItem(id);
+    };
     const loadItem = async function (itemId) {
         setSelectedItem({});
         let selectedItem = {};
 
         if (mainInventory[itemId] !== undefined) {
-            selectedItem.Name = mainInventory[itemId].Name;
+            selectedItem.Id = itemId;
+            selectedItem.Name = mainInventory[itemId]["Name"];
             selectedItem.ManaValue = mainInventory[itemId]["Mana Value"] ?? "";
-            selectedItem.Edition = mainInventory[itemId].Edition ?? "";
+            selectedItem.Edition = mainInventory[itemId]["Edition"] ?? "";
             selectedItem.ScryfallId =
                 mainInventory[itemId]["Scryfall ID"] ?? "";
-            selectedItem.ImageUrl = mainInventory[itemId]["Custom Image URL"] ?? "";
-            if (selectedItem.ScryfallId.length > 0) {
+            selectedItem.ImageUrl = mainInventory[itemId]["Image URL"] ?? "";
+            selectedItem.Location = mainInventory[itemId]["Location"] ?? "";
+            selectedItem.Quantity = mainInventory[itemId]["Quantity"] ?? "";
+            selectedItem.AddQuantityFunction = addQuantity;
+            selectedItem.MinusQuantityFunction = minusQuantity;
+
+            // Only Load the Image URL if its blank:
+            if (
+                selectedItem.ScryfallId.length > 0 &&
+                (mainInventory[itemId]["Image URL"] === undefined ||
+                    mainInventory[itemId]["Image URL"].length == 0)
+            ) {
                 try {
                     let requestUrl = `https://api.scryfall.com/cards/${selectedItem.ScryfallId}?format=json`;
                     let response = await axios.get(requestUrl);
@@ -42,12 +66,14 @@ function App() {
                         d: response.data,
                     });
                     selectedItem.ImageUrl = response.data.image_uris.normal;
+                    mainInventory[itemId]["Image URL"] =
+                        response.data.image_uris.normal;
                 } catch (error) {
                     console.error({ error });
                 }
             }
-            setSelectedItem(selectedItem);
         }
+        setSelectedItem(selectedItem);
     };
     return (
         <div className="app flex-container">

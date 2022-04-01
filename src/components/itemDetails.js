@@ -3,6 +3,15 @@ import PropTypes from "prop-types";
 import ManaValueDisplay from "./ManaValueDisplay";
 
 function ItemDetails(props) {
+    const addQuantity = () => {
+        props.item.AddQuantityFunction(props.item.Id);
+    };
+    const minusQuantity = () => {
+        if (props.item.Quantity > 1) {
+            props.item.MinusQuantityFunction(props.item.Id);
+        }
+    };
+
     if (
         props.item !== undefined &&
         props.item.ImageUrl !== undefined &&
@@ -11,12 +20,20 @@ function ItemDetails(props) {
         return (
             <div>
                 <img className="card-image" src={props.item.ImageUrl}></img>
-                <h2>{props.item.Name}</h2>
-                <div>
-                    Mana Cost:
-                    <ManaValueDisplay manaValue={props.item.ManaValue} />
+                <div className="item-details">
+                    <h2>{props.item.Name}</h2>
+                    <div>
+                        Mana Cost:
+                        <ManaValueDisplay manaValue={props.item.ManaValue} />
+                    </div>
+                    <div>Edition: {props.item.Edition}</div>
+                    <div>Location: {props.item.Location}</div>
+                    <div>Quantity: {props.item.Quantity}</div>
+                    <div>
+                        <button onClick={addQuantity}>add</button>
+                        <button onClick={minusQuantity}>minus</button>
+                    </div>
                 </div>
-                <div>Edition: {props.item.Edition}</div>
             </div>
         );
     }
@@ -25,10 +42,15 @@ function ItemDetails(props) {
 
 ItemDetails.propTypes = {
     item: PropTypes.shape({
+        Id: PropTypes.number,
         Name: PropTypes.string,
         Edition: PropTypes.string,
         ManaValue: PropTypes.string,
         ImageUrl: PropTypes.string,
+        Location: PropTypes.string,
+        Quantity: PropTypes.number,
+        AddQuantityFunction: PropTypes.func,
+        MinusQuantityFunction: PropTypes.func,
     }),
 };
 
