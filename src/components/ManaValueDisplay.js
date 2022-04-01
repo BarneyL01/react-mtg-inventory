@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import "../../node_modules/mana-font/css/mana.min.css";
 import { iconMap } from "../utils/IconMap";
 
-
 function ManaValueDisplay(props) {
     console.log("MVD:" + props.manaValue);
     let processString = props.manaValue;
@@ -15,14 +14,18 @@ function ManaValueDisplay(props) {
         processString = processString.substring(0, processString.length - 1);
     console.log(processString);
     let manaSymbols = processString.split(/\}\{/);
-            React.createElement("i", { key: count, className: "ms ms-1" }, null)
-    manaSymbols.forEach(element => {
-        const icon = iconMap[element] ?? ""
+    React.createElement("i", { key: count, className: "ms ms-1" }, null);
+    manaSymbols.forEach((element) => {
+        const icon = iconMap[element] ?? "";
         const cn = "ms " + icon;
         display.push(
-            React.createElement("i", { key: display.length, className: cn}, null)
-        )
-            });
+            React.createElement(
+                "i",
+                { key: display.length, className: cn },
+                null
+            )
+        );
+    });
 
     return display;
 }
