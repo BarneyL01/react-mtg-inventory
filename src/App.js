@@ -30,17 +30,21 @@ function App() {
             selectedItem.Name = mainInventory[itemId].Name;
             selectedItem.ManaValue = mainInventory[itemId]["Mana Value"] ?? "";
             selectedItem.Edition = mainInventory[itemId].Edition ?? "";
-            selectedItem.ScyfallId = mainInventory[itemId]["Scryfall ID"] ?? "";
-            let requestUrl = `https://api.scryfall.com/cards/${selectedItem.ScyfallId}?format=json`;
-            try {
-                let response = await axios.get(requestUrl);
+            selectedItem.ScryfallId =
+                mainInventory[itemId]["Scryfall ID"] ?? "";
+            selectedItem.ImageUrl = mainInventory[itemId]["Custom Image URL"] ?? "";
+            if (selectedItem.ScryfallId.length > 0) {
+                try {
+                    let requestUrl = `https://api.scryfall.com/cards/${selectedItem.ScryfallId}?format=json`;
+                    let response = await axios.get(requestUrl);
 
-                console.log("%c loadItem:", "color:lightgreen", {
-                    d: response.data,
-                });
-                selectedItem.ImageUrl = response.data.image_uris.normal;
-            } catch (error) {
-                console.error({ error });
+                    console.log("%c loadItem:", "color:lightgreen", {
+                        d: response.data,
+                    });
+                    selectedItem.ImageUrl = response.data.image_uris.normal;
+                } catch (error) {
+                    console.error({ error });
+                }
             }
             setSelectedItem(selectedItem);
         }
