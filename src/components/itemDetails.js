@@ -12,10 +12,9 @@ function ItemDetails(props) {
             <div>
                 <img className="card-image" src={props.item.ImageUrl}></img>
                 <h2>{props.item.Name}</h2>
-                <div>Mana Value: {props.item.ManaValue}</div>
                 <div>
-                    Displayed:
-                    <ManaValueDisplay manaValue={props.item.ManaValue}/>
+                    Mana Cost:
+                    <ManaValueDisplay manaValue={props.item.ManaValue} />
                 </div>
                 <div>Edition: {props.item.Edition}</div>
             </div>

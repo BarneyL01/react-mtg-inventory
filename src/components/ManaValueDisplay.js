@@ -1,29 +1,28 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "../../node_modules/mana-font/css/mana.min.css";
+import { iconMap } from "../utils/IconMap";
+
 
 function ManaValueDisplay(props) {
     console.log("MVD:" + props.manaValue);
     let processString = props.manaValue;
     let count = 0;
     let display = [];
-    if (processString.includes("{1}")) {
-        processString = processString.replace("{1}", "");
-        // display = display.push(<i key={count} className="ms ms-1"></i>);
-        display.push(
+    // Split to inner symbols:
+    if (processString[0] == "{") processString = processString.substring(1);
+    if (processString[processString.length - 1] === "}")
+        processString = processString.substring(0, processString.length - 1);
+    console.log(processString);
+    let manaSymbols = processString.split(/\}\{/);
             React.createElement("i", { key: count, className: "ms ms-1" }, null)
-        );
-        count++;
-    }
-    if (processString.includes("{W}")) {
-        processString = processString.replace("{W}", "");
-        // display = display.push(<i key={count} className="ms ms-w"></i>);
+    manaSymbols.forEach(element => {
+        const icon = iconMap[element] ?? ""
+        const cn = "ms " + icon;
         display.push(
-            React.createElement("i", { key: count, className: "ms ms-w" }, null)
-        );
-        count++;
-    }
-    console.log("%c display", "color:red", { display });
+            React.createElement("i", { key: display.length, className: cn}, null)
+        )
+            });
 
     return display;
 }
