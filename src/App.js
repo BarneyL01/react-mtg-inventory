@@ -11,7 +11,10 @@ function App() {
     const [mainInventory, setInventory] = useState([]);
     const [selectedItem, setSelectedItem] = useState({});
     const parseCsvToInventory = (inputCsv) => {
-        let inventory = Papa.parse(inputCsv, { header: true }).data;
+        let inventory = Papa.parse(inputCsv, {
+            header: true,
+            skipEmptyLines: true,
+        }).data;
         for (let index = 0; index < inventory.length; index++) {
             const element = inventory[index];
             element.id = index;
