@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/react-mtg-inventory/static/css/main.db2cba1c.css",
+    "main.js": "/react-mtg-inventory/static/js/main.24c47f64.js",
+    "static/js/978.98a9c6b5.chunk.js": "/react-mtg-inventory/static/js/978.98a9c6b5.chunk.js",
+    "static/media/mana.svg?v=1.14.0": "/react-mtg-inventory/static/media/mana.a0c6f663e353a72aaf23.svg",
+    "static/media/mplantin.svg?v=1.14.0": "/react-mtg-inventory/static/media/mplantin.83d7d29e550b1e99d824.svg",
+    "static/media/mana.eot": "/react-mtg-inventory/static/media/mana.f3a066447bf6ac35f088.eot",
+    "static/media/mana.woff?v=1.14.0": "/react-mtg-inventory/static/media/mana.26e8eea763aeceb29009.woff",
+    "static/media/mana.ttf?v=1.14.0": "/react-mtg-inventory/static/media/mana.9284e31dddc88aecda27.ttf",
+    "static/media/mplantin.eot": "/react-mtg-inventory/static/media/mplantin.5b4cd76298c9d024c16d.eot",
+    "static/media/mplantin.ttf?v=1.14.0": "/react-mtg-inventory/static/media/mplantin.9ccce3a24c7c9894b58e.ttf",
+    "static/media/mplantin.woff?v=1.14.0": "/react-mtg-inventory/static/media/mplantin.f511062c132e4b72f9b8.woff",
+    "index.html": "/react-mtg-inventory/index.html",
+    "main.db2cba1c.css.map": "/react-mtg-inventory/static/css/main.db2cba1c.css.map",
+    "main.24c47f64.js.map": "/react-mtg-inventory/static/js/main.24c47f64.js.map",
+    "978.98a9c6b5.chunk.js.map": "/react-mtg-inventory/static/js/978.98a9c6b5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.db2cba1c.css",
+    "static/js/main.24c47f64.js"
+  ]
+}
