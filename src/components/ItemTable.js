@@ -8,21 +8,25 @@ function ItemTable(props) {
             <>
                 <table className="inventory-table">
                     <thead>
-                        <th>Name</th>
-                        <th>Color ID</th>
-                        <th>Mana</th>
-                        <th>Ed</th>
-                        <th>Quantity</th>
-                        <th>Location</th>
-                        <th></th>
+                        <tr>
+                            <th>Name</th>
+                            <th>Color ID</th>
+                            <th>Mana</th>
+                            <th>Ed</th>
+                            <th>Quantity</th>
+                            <th>Location</th>
+                            <th></th>
+                        </tr>
                     </thead>
-                    {props.inventory.map((item) => (
-                        <ItemRow
-                            key={item.id}
-                            item={item}
-                            loadItem={props.loadItemFunction}
-                        />
-                    ))}
+                    <tbody>
+                        {props.inventory.map((item) => (
+                            <ItemRow
+                                key={item.id}
+                                item={item}
+                                loadItem={props.loadItemFunction}
+                            />
+                        ))}
+                    </tbody>
                 </table>
             </>
         );
