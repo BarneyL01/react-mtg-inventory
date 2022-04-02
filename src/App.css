@@ -97,6 +97,12 @@
     font-size: inherit;
 }
 
+.accordion-header:hover {
+    background-color: lavender;
+    cursor:pointer;
+
+}
+
 .accordion-header span {
     color: orange;
     font-weight: bold;
@@ -112,4 +118,30 @@
 
 .not-visible {
     display: none;
+}
+
+.primary-button {
+    box-shadow: 4px 4px 6px 2px lightgray;
+    font-weight: bold;
+    padding: 10px 10px;
+    color: white;
+    background-color: purple;
+    border-radius: 0;
+    border: 0;
+}
+.primary-button:hover {
+    background-color: mediumorchid;
+    cursor: pointer;
+}
+
+.import-button {
+    padding-right: 40px;
+
+}
+.import-button::before {
+    font: normal normal normal 14px/1 Mana;
+    content: "\e61a";
+    padding-right: 20px;
+    padding-left: 10px;
+
 }

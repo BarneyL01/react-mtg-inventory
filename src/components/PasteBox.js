@@ -37,13 +37,22 @@ function PasteBox(props) {
                         : "accordion-content not-visible"
                 }
             >
-                <textarea
-                    rows="10"
-                    cols="100"
-                    value={pasteContents}
-                    onChange={handleChange}
-                ></textarea>
-                <button onClick={handleImport}>Import</button>
+                <div>
+                    <textarea
+                        rows="10"
+                        cols="100"
+                        value={pasteContents}
+                        onChange={handleChange}
+                    ></textarea>
+                </div>
+                <div>
+                    <button
+                        className="import-button primary-button"
+                        onClick={handleImport}
+                    >
+                        Import
+                    </button>
+                </div>
                 <h3>Import Requirements/Features</h3>
                 <ul>
                     <li>CSV (comma separated values)</li>
