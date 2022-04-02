@@ -29,8 +29,11 @@
 }
 
 .paste-box {
-    padding-left: 1rem;
     text-align: left;
+}
+
+.paste-box-contents {
+    padding-left: 1em;
 }
 
 .item-details {
@@ -81,4 +84,32 @@
 
 .inventory-table tr:nth-child(odd) {
     background: thistle;
+}
+
+.accordion-header {
+    border: 0;
+    margin: 10px 0;
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: inherit;
+}
+
+.accordion-header span {
+    color: orange;
+    font-weight: bold;
+}
+
+.accordion-content {
+    transition: all 0.8s ease-out;
+}
+
+.visible {
+    display: block;
+}
+
+.not-visible {
+    display: none;
 }
