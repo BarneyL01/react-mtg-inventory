@@ -5,11 +5,26 @@ import ItemRow from "./ItemRow";
 function ItemTable(props) {
     if (props.inventory !== undefined) {
         return (
-            <ul>
-                {props.inventory.map((item) => (
-                    <ItemRow key={item.id} item={item} loadItem={props.loadItemFunction} />
-                ))}
-            </ul>
+            <>
+                <table className="inventory-table">
+                    <thead>
+                        <th>Name</th>
+                        <th>Color ID</th>
+                        <th>Mana</th>
+                        <th>Ed</th>
+                        <th>Quantity</th>
+                        <th>Location</th>
+                        <th></th>
+                    </thead>
+                    {props.inventory.map((item) => (
+                        <ItemRow
+                            key={item.id}
+                            item={item}
+                            loadItem={props.loadItemFunction}
+                        />
+                    ))}
+                </table>
+            </>
         );
     }
     return <></>;

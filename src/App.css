@@ -63,3 +63,22 @@
 .card-image {
     max-width: 200px;
 }
+
+.inventory-table {
+    text-align: left;
+    border-collapse: collapse;
+}
+
+.inventory-table th,
+.inventory-table td {
+    padding: 8px 15px;
+}
+
+.inventory-table th {
+    background-color: indigo;
+    color: azure;
+}
+
+.inventory-table tr:nth-child(odd) {
+    background: thistle;
+}
