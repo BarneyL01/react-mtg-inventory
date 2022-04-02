@@ -13,7 +13,7 @@ function ItemRow(props) {
                 <td>{props.item.Name}</td>
                 <td></td>
                 <td>{props.item["Mana Value"]}</td>
-                <td>{props.item["Edition Code"]}</td>
+                <td>{props.item["Edition code"]}</td>
                 <td>{props.item.Quantity}</td>
                 <td>{props.item.Location}</td>
                 <td>
