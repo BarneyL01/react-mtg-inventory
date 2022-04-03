@@ -2,6 +2,7 @@ import "./App.css";
 import React from "react";
 import { useState } from "react";
 import PasteBox from "./components/PasteBox";
+import ExportBox from "./components/ExportBox";
 import ItemTable from "./components/ItemTable";
 import Papa from "papaparse";
 import ItemDetails from "./components/itemDetails";
@@ -10,6 +11,7 @@ import axios from "axios";
 function App() {
     const [mainInventory, setInventory] = useState([]);
     const [selectedItem, setSelectedItem] = useState({});
+    const [exportedInventory, setExportedInventory] = useState("");
     const parseCsvToInventory = (inputCsv) => {
         let inventory = Papa.parse(inputCsv, {
             header: true,
@@ -22,6 +24,11 @@ function App() {
         }
         setInventory(inventory);
     };
+    const exportCsv = () => {
+        let inventory = Papa.unparse(mainInventory);
+        console.log("%c inventory", "color:hotpink", {inventory});
+        setExportedInventory(inventory);
+    }
     // let loadedId = "";
     const addQuantity = (id) => {
         mainInventory[id]["Quantity"] += 1;
@@ -89,6 +96,9 @@ function App() {
                             inventory={mainInventory}
                             loadItemFunction={loadItem}
                         />
+                    </div>
+                    <div>
+                        <ExportBox onClickFunction={exportCsv} exportedCsv={exportedInventory} />
                     </div>
                 </div>
                 <div className="flex-right">
