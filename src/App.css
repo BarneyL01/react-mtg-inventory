@@ -67,6 +67,8 @@
     max-width: 200px;
 }
 
+/* Table */
+
 .inventory-table {
     text-align: left;
     border-collapse: collapse;
@@ -83,7 +85,11 @@
 }
 
 .inventory-table tr:nth-child(odd) {
-    background: thistle;
+    background: #E1D3F3;
+}
+
+.inventory-table tr:hover {
+    background-color: #C9ACF1;
 }
 
 .accordion-header {
