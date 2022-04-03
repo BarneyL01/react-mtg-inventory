@@ -24,11 +24,21 @@ function App() {
         }
         setInventory(inventory);
     };
-    const exportCsv = () => {
-        let inventory = Papa.unparse(mainInventory);
-        console.log("%c inventory", "color:hotpink", {inventory});
+    const exportCsv = (format) => {
+        let exportConfig = {};
+        if (format === "moxfield") {
+            exportConfig = {
+                columns: ["Quantity", "Name"],
+                delimiter: " ",
+                header: false,
+                escapeChar: '',
+                quoteChar: '',
+            };
+        }
+        let inventory = Papa.unparse(mainInventory, exportConfig);
+        console.log("%c inventory", "color:hotpink", { inventory });
         setExportedInventory(inventory);
-    }
+    };
     // let loadedId = "";
     const addQuantity = (id) => {
         mainInventory[id]["Quantity"] += 1;
@@ -98,7 +108,10 @@ function App() {
                         />
                     </div>
                     <div>
-                        <ExportBox onClickFunction={exportCsv} exportedCsv={exportedInventory} />
+                        <ExportBox
+                            onClickFunction={exportCsv}
+                            exportedCsv={exportedInventory}
+                        />
                     </div>
                 </div>
                 <div className="flex-right">

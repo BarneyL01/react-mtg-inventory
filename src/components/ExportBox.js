@@ -11,7 +11,10 @@ function ExportBox(props) {
     // };
 
     const handleExport = () => {
-        props.onClickFunction();
+        props.onClickFunction("");
+    };
+    const handleExportToMoxfield = () => {
+        props.onClickFunction("moxfield");
     };
     const toggleVisibility = () => {
         setVisibility(!visibility);
@@ -48,6 +51,12 @@ function ExportBox(props) {
                         onClick={handleExport}
                     >
                         Export
+                    </button>
+                    <button
+                        className="moxfield-button import-button primary-button"
+                        onClick={handleExportToMoxfield}
+                    >
+                        Moxfield
                     </button>
                 </div>
             </div>
