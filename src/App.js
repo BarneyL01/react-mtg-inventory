@@ -22,9 +22,6 @@ function App() {
         }
         setInventory(inventory);
     };
-    const logInventory = () => {
-        console.log("%c inventory:", "color:plum", { mainInventory });
-    };
     // let loadedId = "";
     const addQuantity = (id) => {
         mainInventory[id]["Quantity"] += 1;
@@ -86,7 +83,6 @@ function App() {
                     <PasteBox onClickFunction={parseCsvToInventory} />
                 </div>
                 <div className="inventory-section">
-                    <button onClick={logInventory}>Log Inventory</button>
                     <ItemTable
                         inventory={mainInventory}
                         loadItemFunction={loadItem}
