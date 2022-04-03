@@ -36,6 +36,11 @@
     padding-left: 1em;
 }
 
+.paste-box-textarea {
+    width: 90%;
+    min-height: 20vh;
+}
+
 .item-details {
     text-align: left;
 }

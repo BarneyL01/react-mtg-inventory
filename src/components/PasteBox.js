@@ -39,8 +39,7 @@ function PasteBox(props) {
             >
                 <div>
                     <textarea
-                        rows="10"
-                        cols="100"
+                        className="paste-box-textarea"
                         value={pasteContents}
                         onChange={handleChange}
                     ></textarea>
