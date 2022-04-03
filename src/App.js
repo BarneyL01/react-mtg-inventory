@@ -82,6 +82,7 @@ function App() {
                 <div>
                     <PasteBox onClickFunction={parseCsvToInventory} />
                 </div>
+                <header className="inventory-header">Inventory</header>
                 <div className="inventory-section">
                     <ItemTable
                         inventory={mainInventory}

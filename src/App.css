@@ -15,7 +15,7 @@
 
 .app-header {
     background-color: #282c34;
-    min-height: 10vh;
+    min-height: 7vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -67,11 +67,23 @@
     max-width: 200px;
 }
 
-/* Table */
+.inventory-header {
+    width: 100%;
+    background-color: #20002c;
+    color: lavender;
+    min-height: 6vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+}
 
+/* Table */
 .inventory-table {
     text-align: left;
     border-collapse: collapse;
+    width: 100%;
 }
 
 .inventory-table th,
@@ -85,19 +97,19 @@
 }
 
 .inventory-table tr:nth-child(odd) {
-    background: #E1D3F3;
+    background: #e1d3f3;
 }
 
 .inventory-table tr:hover {
-    background-color: #C9ACF1;
-    cursor:pointer;
+    background-color: #c9acf1;
+    cursor: pointer;
 }
 
 /* Accordion */
 
 .accordion-header {
     border: 0;
-    margin: 10px 0;
+    margin-bottom: 10px;
     padding: 20px;
     width: 100%;
     display: flex;
@@ -108,8 +120,7 @@
 
 .accordion-header:hover {
     background-color: lavender;
-    cursor:pointer;
-
+    cursor: pointer;
 }
 
 .accordion-header span {
@@ -145,12 +156,10 @@
 
 .import-button {
     padding-right: 40px;
-
 }
 .import-button::before {
     font: normal normal normal 14px/1 Mana;
     content: "\e61a";
     padding-right: 20px;
     padding-left: 10px;
-
 }
