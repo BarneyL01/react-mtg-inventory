@@ -76,22 +76,24 @@ function App() {
         setSelectedItem(selectedItem);
     };
     return (
-        <div className="app flex-container">
-            <div className="flex-left">
-                <header className="app-header">MTG Inventory</header>
-                <div>
-                    <PasteBox onClickFunction={parseCsvToInventory} />
+        <div>
+            <header className="app-header">MTG Inventory</header>
+            <div className="app flex-container">
+                <div className="flex-left">
+                    <div>
+                        <PasteBox onClickFunction={parseCsvToInventory} />
+                    </div>
+                    <header className="inventory-header">Inventory</header>
+                    <div className="inventory-section">
+                        <ItemTable
+                            inventory={mainInventory}
+                            loadItemFunction={loadItem}
+                        />
+                    </div>
                 </div>
-                <header className="inventory-header">Inventory</header>
-                <div className="inventory-section">
-                    <ItemTable
-                        inventory={mainInventory}
-                        loadItemFunction={loadItem}
-                    />
+                <div className="flex-right">
+                    <ItemDetails item={selectedItem} />
                 </div>
-            </div>
-            <div className="flex-right">
-                <ItemDetails item={selectedItem} />
             </div>
         </div>
     );
