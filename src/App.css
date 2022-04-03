@@ -43,7 +43,16 @@
 
 .item-details {
     text-align: left;
+    padding: 1em;
 }
+.item-details-header {
+    font-size: larger;
+    font-weight: bold;;
+}
+.item-details-content {
+    text-align: left;
+}
+
 
 @keyframes app-logo-spin {
     from {
@@ -70,6 +79,7 @@
 
 .card-image {
     max-width: 200px;
+    margin: 0 auto;
 }
 
 .inventory-header {

@@ -18,10 +18,10 @@ function ItemDetails(props) {
         props.item.ImageUrl.length > 0
     ) {
         return (
-            <div>
+            <div className="item-details">
                 <img className="card-image" src={props.item.ImageUrl}></img>
-                <div className="item-details">
-                    <h2>{props.item.Name}</h2>
+                <div className="item-details-content">
+                    <header className="item-details-header">{props.item.Name}</header>
                     <div>
                         Mana Cost:
                         <ManaValueDisplay manaValue={props.item.ManaValue} />
