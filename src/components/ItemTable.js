@@ -13,7 +13,7 @@ function ItemTable(props) {
                             <th>Color ID</th>
                             <th>Mana</th>
                             <th>Ed</th>
-                            <th>Quantity</th>
+                            <th>Qty</th>
                             <th>Location</th>
                         </tr>
                     </thead>

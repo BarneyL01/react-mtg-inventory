@@ -101,9 +101,11 @@
     width: 100%;
 }
 
-.inventory-table th,
-.inventory-table td {
+.inventory-table th {
     padding: 8px 15px;
+}
+.inventory-table td {
+    padding: 4px 15px;
 }
 
 .inventory-table th {
@@ -111,6 +113,9 @@
     color: azure;
 }
 
+.inventory-table tr:nth-child(even) {
+    background: whitesmoke;
+}
 .inventory-table tr:nth-child(odd) {
     background: #e1d3f3;
 }
