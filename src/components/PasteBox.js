@@ -28,7 +28,7 @@ function PasteBox(props) {
         <div className="paste-box">
             <button className="accordion-header" onClick={toggleVisibility}>
                 <strong>Paste to import</strong>
-                <span>{visibility ? "v" : ">"}</span>
+                <span>{visibility ? <i className="ms ms-untap"></i>: <i className="ms ms-tap"></i>}</span>
             </button>
             <div
                 className={
