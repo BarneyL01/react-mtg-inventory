@@ -10,7 +10,7 @@ function ItemRow(props) {
     };
     if (props.item !== undefined && props.item.Name !== undefined) {
         return (
-            <tr>
+            <tr onClick={lookupItem}>
                 <td>{props.item.Name}</td>
                 <td></td>
                 <td>
@@ -19,9 +19,6 @@ function ItemRow(props) {
                 <td>{props.item["Edition code"]}</td>
                 <td>{props.item.Quantity}</td>
                 <td>{props.item.Location}</td>
-                <td>
-                    <button onClick={lookupItem}>Select</button>
-                </td>
             </tr>
         );
     }

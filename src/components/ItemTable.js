@@ -15,7 +15,6 @@ function ItemTable(props) {
                             <th>Ed</th>
                             <th>Quantity</th>
                             <th>Location</th>
-                            <th></th>
                         </tr>
                     </thead>
                     <tbody>

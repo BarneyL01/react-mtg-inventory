@@ -90,7 +90,10 @@
 
 .inventory-table tr:hover {
     background-color: #C9ACF1;
+    cursor:pointer;
 }
+
+/* Accordion */
 
 .accordion-header {
     border: 0;
