@@ -124,6 +124,9 @@
     background-color: #c9acf1;
     cursor: pointer;
 }
+.inventory-section {
+    margin-bottom: 1em;
+}
 
 /* Accordion */
 
@@ -136,6 +139,7 @@
     justify-content: space-between;
     align-items: center;
     font-size: inherit;
+    background-color: whitesmoke;
 }
 
 .accordion-header:hover {
