@@ -9,9 +9,9 @@ const scryfallAutocomplete = async function (searchterm) {
         let response = await axios.get(requestUrl);
 
         console.log("%c scryfallAutocomplete:", "color:lightgreen", {
-            d: response.data,
+            d: response.data.data,
         });
-        return response.data;
+        return response.data.data;
     } catch (error) {
         console.error({ error });
     }
