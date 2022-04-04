@@ -215,11 +215,10 @@
     content: "+";
 }
 
+/* * Modal */
 .glass-modal {
-    color: white;
     z-index: 10;
     background: rgba(122, 88, 128, 0.47);
-    border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(11.3px);
@@ -229,6 +228,42 @@
 }
 
 .modal-content {
-    background-color: indigo;
     z-index: 0;
+    background: rgba(255, 255, 255, 0.47);
+    border-radius: 8px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(11.3px);
+    margin-left: auto;
+    margin-right: auto;
+    width: 70vw;
+    margin-top: 3em;
+    padding: 2em 0;
+    position: relative;
+}
+
+.modal-content header {
+    color: indigo;
+    font-size: large;
+    font-weight: bold;
+}
+
+.search-input {
+    width: 80%;
+    font-size: large;
+    background: rgba(255, 255, 255, 0.47);
+    border-radius: 3px;
+    border: 1px solid white;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    position: absolute;
+    top: 1em;
+    right: 1em;
+
+}
+.close-button::before {
+
+    content: "❌"
 }
