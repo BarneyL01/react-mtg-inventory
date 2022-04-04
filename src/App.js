@@ -115,7 +115,7 @@ function App() {
                                 Inventory
                             </header>
                             <button
-                                className="add-card-button import-button primary-button"
+                                className="add-card-button import-button primary-button action-button"
                                 onClick={() => setIsOpen(true)}
                             >
                                 Add Card

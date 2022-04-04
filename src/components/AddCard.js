@@ -17,8 +17,8 @@ const AddCard = ({ setIsOpen }) => {
                         <input className="search-input"></input>
                     </div>
                     <div>
-                        <button className="primary-button">Add</button>
-                        <button className="secondary-button">Cancel</button>
+                        <button className="primary-button action-button">Add</button>
+                        <button className="secondary-button action-button">Cancel</button>
                     </div>
                 </div>
             </div>
