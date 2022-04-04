@@ -1,9 +1,10 @@
 import "./App.css";
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PasteBox from "./components/PasteBox";
 import ExportBox from "./components/ExportBox";
 import ItemTable from "./components/ItemTable";
+import AddCard from "./components/AddCard";
 import Papa from "papaparse";
 import ItemDetails from "./components/itemDetails";
 import axios from "axios";
@@ -12,6 +13,14 @@ function App() {
     const [mainInventory, setInventory] = useState([]);
     const [selectedItem, setSelectedItem] = useState({});
     const [exportedInventory, setExportedInventory] = useState("");
+    const [isOpen, setIsOpen] = useState(false);
+
+    useEffect(() => {
+        // Stops scrolling if modal is open:
+        isOpen && (document.body.style.overflow = "hidden");
+        !isOpen && (document.body.style.overflow = "unset");
+    }, [isOpen]);
+
     const parseCsvToInventory = (inputCsv) => {
         let inventory = Papa.parse(inputCsv, {
             header: true,
@@ -31,8 +40,8 @@ function App() {
                 columns: ["Quantity", "Name"],
                 delimiter: " ",
                 header: false,
-                escapeChar: '',
-                quoteChar: '',
+                escapeChar: "",
+                quoteChar: "",
             };
         }
         let inventory = Papa.unparse(mainInventory, exportConfig);
@@ -93,32 +102,41 @@ function App() {
         setSelectedItem(selectedItem);
     };
     return (
-        <div>
-            <header className="app-header">MTG Inventory</header>
-            <div className="app flex-container">
-                <div className="flex-left">
-                    <div>
-                        <PasteBox onClickFunction={parseCsvToInventory} />
+        <>
+            <div>
+                <header className="app-header">MTG Inventory</header>
+                <div className="app flex-container">
+                    <div className="flex-left">
+                        <div>
+                            <PasteBox onClickFunction={parseCsvToInventory} />
+                        </div>
+                        <header className="inventory-header">Inventory</header>
+                        <div className="inventory-section">
+                            <ItemTable
+                                inventory={mainInventory}
+                                loadItemFunction={loadItem}
+                            />
+                            <button
+                                className="import-button primary-button"
+                                onClick={() => setIsOpen(true)}
+                            >
+                                Add Card
+                            </button>
+                        </div>
+                        <div>
+                            <ExportBox
+                                onClickFunction={exportCsv}
+                                exportedCsv={exportedInventory}
+                            />
+                        </div>
                     </div>
-                    <header className="inventory-header">Inventory</header>
-                    <div className="inventory-section">
-                        <ItemTable
-                            inventory={mainInventory}
-                            loadItemFunction={loadItem}
-                        />
+                    <div className="flex-right">
+                        <ItemDetails item={selectedItem} />
                     </div>
-                    <div>
-                        <ExportBox
-                            onClickFunction={exportCsv}
-                            exportedCsv={exportedInventory}
-                        />
-                    </div>
-                </div>
-                <div className="flex-right">
-                    <ItemDetails item={selectedItem} />
+                    {isOpen && <AddCard setIsOpen={setIsOpen} />}
                 </div>
             </div>
-        </div>
+        </>
     );
 }
 
