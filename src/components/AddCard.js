@@ -1,8 +1,9 @@
 import React from "react";
-// import { useState } from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
 
 const AddCard = ({ setIsOpen }) => {
+    const [card, ] = useState({});
     return (
         <>
             <div className="glass-modal">
@@ -17,6 +18,20 @@ const AddCard = ({ setIsOpen }) => {
                             className="search-input"
                             placeholder="Search for a card to add"
                         ></input>
+                    </div>
+                    <div className="flex-container section">
+                        <div className="flex-equal">
+                            <div
+                                className={
+                                    card.name === undefined
+                                        ? "card-image__empty"
+                                        : "card-image"
+                                }
+                            >
+                                nothing
+                            </div>
+                        </div>
+                        <div className="flex-equal">Name:</div>
                     </div>
                     <div>
                         <button className="general-button primary-button action-button">
