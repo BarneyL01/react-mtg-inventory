@@ -12,8 +12,17 @@ const AddCard = ({ setIsOpen }) => {
         console.log("%c selectCard-cardDetails:", "color:hotpink", {
             cardDetails,
         });
+        const loadedDetails = {
+            Name: cardName,
+            "Image URL": cardDetails.image_uris.normal,
+            CMC: cardDetails.cmc,
+            Edition: cardDetails.set_name,
+            "Edition code": cardDetails.set.toUpperCase(),
+            "Collector's number": cardDetails.collector_number,
+            "Mana Value": cardDetails.mana_cost,
+        };
 
-        setCard({ name: cardName, imageUrl: cardDetails.image_uris.normal });
+        setCard(loadedDetails);
     };
 
     return (
@@ -32,15 +41,15 @@ const AddCard = ({ setIsOpen }) => {
                         <div className="flex-equal">
                             <div
                                 className={
-                                    card.name === undefined
+                                    card["Name"] === undefined
                                         ? "card-image__empty"
                                         : ""
                                 }
                             >
-                                {card.imageUrl !== undefined ? (
+                                {card["Image URL"] !== undefined ? (
                                     <img
                                         className="card-image"
-                                        src={card.imageUrl}
+                                        src={card["Image URL"]}
                                     ></img>
                                 ) : (
                                     "nothing"
@@ -48,7 +57,7 @@ const AddCard = ({ setIsOpen }) => {
                             </div>
                         </div>
                         <div className="flex-equal">
-                            Name: <strong>{card.name}</strong>
+                            Name: <strong>{card["Name"]}</strong>
                         </div>
                     </div>
                     <div>
