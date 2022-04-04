@@ -198,6 +198,23 @@
     content: "\e962";
 }
 
+.container {
+    position: relative;
+}
+
+.add-card-button {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border-width: 3px;
+}
+
+.add-card-button::before {
+    content: "+";
+}
+
 .glass-modal {
     color: white;
     z-index: 10;

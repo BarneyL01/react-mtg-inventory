@@ -110,18 +110,22 @@ function App() {
                         <div>
                             <PasteBox onClickFunction={parseCsvToInventory} />
                         </div>
-                        <header className="inventory-header">Inventory</header>
-                        <div className="inventory-section">
-                            <ItemTable
-                                inventory={mainInventory}
-                                loadItemFunction={loadItem}
-                            />
+                        <div className="container">
+                            <header className="inventory-header">
+                                Inventory
+                            </header>
                             <button
-                                className="import-button primary-button"
+                                className="add-card-button import-button primary-button"
                                 onClick={() => setIsOpen(true)}
                             >
                                 Add Card
                             </button>
+                            <div className="inventory-section">
+                                <ItemTable
+                                    inventory={mainInventory}
+                                    loadItemFunction={loadItem}
+                                />
+                            </div>
                         </div>
                         <div>
                             <ExportBox
