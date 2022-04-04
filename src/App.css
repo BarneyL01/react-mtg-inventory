@@ -269,6 +269,17 @@
     font-weight: bold;
 }
 
+.close-button {
+    background: none;
+    border: none;
+    position: absolute;
+    top: 1em;
+    right: 1em;
+}
+.close-button::before {
+    content: "❌";
+}
+
 .search-input {
     width: 80%;
     font-size: large;
@@ -283,13 +294,22 @@
     border: 1px solid indigo;
 }
 
-.close-button {
-    background: none;
-    border: none;
+.suggestion-list {
+    margin-top: 0;
+    padding: 0;
+    width: 82%;
+    left: 9%;
     position: absolute;
-    top: 1em;
-    right: 1em;
+    border: 1px solid indigo;
 }
-.close-button::before {
-    content: "❌";
+
+.suggestion-item {
+    background-color: white;
+    list-style-type: none;
+    padding: 0.3rem 0.5rem;
+    text-align: left;
+}
+.suggestion-item:hover {
+    background-color: lavender;
+    cursor: pointer;
 }

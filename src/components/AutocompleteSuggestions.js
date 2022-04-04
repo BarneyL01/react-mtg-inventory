@@ -6,12 +6,12 @@ const AutocompleteSuggestions = ({ onClick, suggestions }) => {
         return <></>;
     }
     return (
-        <ul>
+        <ul className="suggestion-list">
             {suggestions.map((suggestion) => {
-                // console.log("%c index:" + index, "color:grey");
                 return (
                     <li
                         // className={className}
+												className="suggestion-item"
                         key={suggestion}
                         onClick={onClick}
                     >
