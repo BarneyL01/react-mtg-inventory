@@ -82,13 +82,20 @@
 .card-image {
     max-width: 100%;
     margin: 0 auto;
+    border-radius: 15px;
 }
 
 .card-image__empty {
     min-height: 400px;
     background-color: white;
-    margin: 0 20px 0 20px;
+    margin: 0 20px 0 20%;
     border-radius: 8px;
+    width: 300px;
+}
+
+.card-image__loaded {
+    margin: 0 20px 0 20%;
+    max-width: 400px;
 }
 
 .inventory-header {
