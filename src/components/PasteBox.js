@@ -46,7 +46,7 @@ function PasteBox(props) {
                 </div>
                 <div>
                     <button
-                        className="import-button primary-button"
+                        className="import-button primary-button action-button"
                         onClick={handleImport}
                     >
                         Import

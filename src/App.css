@@ -47,12 +47,11 @@
 }
 .item-details-header {
     font-size: larger;
-    font-weight: bold;;
+    font-weight: bold;
 }
 .item-details-content {
     text-align: left;
 }
-
 
 @keyframes app-logo-spin {
     from {
@@ -164,13 +163,15 @@
     display: none;
 }
 /* Buttons */
-
-.primary-button {
+.action-button {
     font-weight: bold;
     padding: 10px 10px;
+    border-radius: 5px;
+}
+
+.primary-button {
     color: white;
     background-color: indigo;
-    border-radius: 5px;
     border: 5px solid #d1bbe1;
 }
 .primary-button:hover {

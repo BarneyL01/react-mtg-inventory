@@ -47,13 +47,13 @@ function ExportBox(props) {
                 </div>
                 <div>
                     <button
-                        className="import-button primary-button"
+                        className="import-button primary-button action-button"
                         onClick={handleExport}
                     >
                         Export
                     </button>
                     <button
-                        className="moxfield-button import-button primary-button"
+                        className="moxfield-button import-button primary-button action-button"
                         onClick={handleExportToMoxfield}
                     >
                         Moxfield
