@@ -34,11 +34,14 @@ const AddCard = ({ setIsOpen }) => {
                                 className={
                                     card.name === undefined
                                         ? "card-image__empty"
-                                        : "card-image"
+                                        : ""
                                 }
                             >
                                 {card.imageUrl !== undefined ? (
-                                    <img src={card.imageUrl}></img>
+                                    <img
+                                        className="card-image"
+                                        src={card.imageUrl}
+                                    ></img>
                                 ) : (
                                     "nothing"
                                 )}
