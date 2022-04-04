@@ -68,7 +68,7 @@ const AddCard = ({ setIsOpen }) => {
                             className="general-button secondary-button action-button"
                             onClick={() => setIsOpen(false)}
                         >
-                            Cancel
+                            Close
                         </button>
                     </div>
                 </div>
