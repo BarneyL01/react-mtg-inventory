@@ -1,9 +1,12 @@
 import React from "react";
 import { useState } from "react";
 import PropTypes from "prop-types";
+import SearchBox from "./SearchBox";
 
 const AddCard = ({ setIsOpen }) => {
-    const [card, ] = useState({});
+    const [card] = useState({});
+
+
     return (
         <>
             <div className="glass-modal">
@@ -14,10 +17,7 @@ const AddCard = ({ setIsOpen }) => {
                         alt="close"
                     ></button>
                     <div className="section">
-                        <input
-                            className="search-input"
-                            placeholder="Search for a card to add"
-                        ></input>
+                        <SearchBox />
                     </div>
                     <div className="flex-container section">
                         <div className="flex-equal">
