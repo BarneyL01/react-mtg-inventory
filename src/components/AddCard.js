@@ -4,8 +4,12 @@ import PropTypes from "prop-types";
 import SearchBox from "./SearchBox";
 
 const AddCard = ({ setIsOpen }) => {
-    const [card] = useState({});
+    const [card, setCard] = useState({});
 
+    const selectCard = async function (cardName) {
+        console.log("%c cardName:" + cardName, "color:hotpink");
+        setCard({ name: cardName });
+    };
 
     return (
         <>
@@ -17,7 +21,7 @@ const AddCard = ({ setIsOpen }) => {
                         alt="close"
                     ></button>
                     <div className="section">
-                        <SearchBox />
+                        <SearchBox selectCard={selectCard} />
                     </div>
                     <div className="flex-container section">
                         <div className="flex-equal">

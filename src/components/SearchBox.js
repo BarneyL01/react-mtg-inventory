@@ -3,9 +3,9 @@ import { debounce } from "../utils/utils";
 import { scryfallAutocomplete } from "../utils/scryfallApis";
 import AutocompleteSuggestions from "./AutocompleteSuggestions";
 import { useState, useCallback } from "react";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 
-const SearchBox = () => {
+const SearchBox = ({ selectCard }) => {
     const [userInput, setUserInput] = useState("");
     const [suggestions, setSuggestions] = useState([]);
     const debouncedAutocomplete = useCallback(
@@ -24,11 +24,13 @@ const SearchBox = () => {
         // setSuggestions(["Hello", "one"]);
     };
     const selectSuggestion = (event) => {
+        let selectedCardName = event.currentTarget.innerText;
         console.log("%c selectSuggestion:", "color:cyan", {
-            select: event.currentTarget.innerText,
+            select: selectedCardName,
         });
-        setUserInput(event.currentTarget.innerText);
+        setUserInput(selectedCardName);
         setSuggestions([]);
+        selectCard(event.currentTarget.innerText);
     };
     return (
         <>
@@ -44,6 +46,10 @@ const SearchBox = () => {
             />
         </>
     );
+};
+
+SearchBox.propTypes = {
+    selectCard: PropTypes.func.isRequired,
 };
 
 export default SearchBox;
