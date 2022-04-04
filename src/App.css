@@ -69,7 +69,6 @@
 
 .flex-left {
     width: 75%;
-    height: 100vh;
 }
 
 .flex-right {
@@ -126,6 +125,9 @@
 .inventory-section {
     margin-bottom: 1em;
 }
+.section {
+    margin-bottom: 1em;
+}
 
 /* Accordion */
 
@@ -167,6 +169,7 @@
     font-weight: bold;
     padding: 10px 10px;
     border-radius: 5px;
+    margin-right: 1em;
 }
 
 .primary-button {
@@ -179,9 +182,17 @@
     cursor: pointer;
 }
 
+.secondary-button {
+    color: indigo;
+    border: 2px solid indigo;
+}
+
+.general-button {
+    min-width: 100px;
+}
+
 .import-button {
     padding-right: 40px;
-    margin-right: 1em;
 }
 .import-button::before {
     font: normal normal normal 14px/1 Mana;
@@ -253,6 +264,12 @@
     background: rgba(255, 255, 255, 0.47);
     border-radius: 3px;
     border: 1px solid white;
+    padding: 0.5em;
+    color: indigo;
+}
+
+.search-input::active {
+    border: 1px solid indigo;
 }
 
 .close-button {
@@ -261,9 +278,7 @@
     position: absolute;
     top: 1em;
     right: 1em;
-
 }
 .close-button::before {
-
-    content: "❌"
+    content: "❌";
 }

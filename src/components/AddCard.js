@@ -7,18 +7,24 @@ const AddCard = ({ setIsOpen }) => {
         <>
             <div className="glass-modal">
                 <div className="modal-content">
-                    <header>Add Card</header>
                     <button
                         className="close-button"
                         onClick={() => setIsOpen(false)}
                         alt="close"
                     ></button>
-                    <div>
-                        <input className="search-input"></input>
+                    <div className="section">
+                        <input
+                            className="search-input"
+                            placeholder="Search for a card to add"
+                        ></input>
                     </div>
                     <div>
-                        <button className="primary-button action-button">Add</button>
-                        <button className="secondary-button action-button">Cancel</button>
+                        <button className="general-button primary-button action-button">
+                            Add
+                        </button>
+                        <button className="general-button secondary-button action-button">
+                            Cancel
+                        </button>
                     </div>
                 </div>
             </div>
