@@ -55,7 +55,10 @@ const AddCard = ({ setIsOpen }) => {
                         <button className="general-button primary-button action-button">
                             Add
                         </button>
-                        <button className="general-button secondary-button action-button">
+                        <button
+                            className="general-button secondary-button action-button"
+                            onClick={() => setIsOpen(false)}
+                        >
                             Cancel
                         </button>
                     </div>
