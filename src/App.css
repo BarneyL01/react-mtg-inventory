@@ -343,3 +343,8 @@
   background-color: lavender;
   cursor: pointer;
 }
+
+/* * overloads for mana symbol font */
+.ms-pp::after {
+  content: "\e618";
+}
