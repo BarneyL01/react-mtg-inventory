@@ -12,13 +12,9 @@ const AddCard = ({ setIsOpen }) => {
     const [editions, setEditions] = useState([]);
     const [selectedEdition, setSelectedEdition] = useState("");
 
-    const selectCard = async function (cardName) {
-        let cardDetails = await scryfallGetCardExactName(cardName);
-        console.log("%c selectCard-cardDetails:", "color:hotpink", {
-            cardDetails,
-        });
+    const copyCardDetails = (cardDetails) => {
         const loadedDetails = {
-            Name: cardName,
+            Name: cardDetails.name,
             "Image URL": cardDetails.image_uris.normal,
             CMC: cardDetails.cmc,
             Edition: cardDetails.set_name,
@@ -27,6 +23,14 @@ const AddCard = ({ setIsOpen }) => {
             "Mana Value": cardDetails.mana_cost,
             "Scryfall ID": cardDetails.id,
         };
+        return loadedDetails;
+    };
+
+    const selectCard = async function (cardName) {
+        let cardDetails = await scryfallGetCardExactName(cardName);
+        console.log("%c selectCard-cardDetails:", "color:hotpink", {
+            cardDetails,
+        });
         setSelectedEdition(cardDetails.id);
         let editionsResponse = await scryfallGetPublishedCards(
             cardDetails.prints_search_uri
@@ -36,7 +40,18 @@ const AddCard = ({ setIsOpen }) => {
         //     editionsResponse,
         // });
 
-        setCard(loadedDetails);
+        setCard(copyCardDetails(cardDetails));
+    };
+
+    const selectCardFromEditions = (event) => {
+        setCard(
+            copyCardDetails(
+                editions.find((item) => {
+                    return item.id === event.target.value;
+                })
+            )
+        );
+        setSelectedEdition(event.target.value);
     };
 
     return (
@@ -72,18 +87,24 @@ const AddCard = ({ setIsOpen }) => {
                         </div>
                         <div className="flex-equal">
                             <ul className="card-details-list">
-                                <li><label>Name: </label><strong>{card["Name"]}</strong></li>
+                                <li>
+                                    <label>Name: </label>
+                                    <strong>{card["Name"]}</strong>
+                                </li>
                                 {editions.length > 0 ? (
                                     <li>
                                         <label>Editions: </label>
-                                        <select value={selectedEdition}>
+                                        <select
+                                            value={selectedEdition}
+                                            onChange={selectCardFromEditions}
+                                        >
                                             {editions.map((item) => {
                                                 return (
                                                     <option
                                                         key={item.id}
                                                         value={item.id}
                                                     >
-                                                        {item.set_name}
+                                                        {item.set_name} #{item.collector_number}
                                                     </option>
                                                 );
                                             })}
