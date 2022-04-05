@@ -23,6 +23,7 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
+    "lint": "eslint --ignore-path .eslintignore --ext .js,.ts .",
     "style": "prettier --write {src,test}/**/* ./*.{json,*.json} !package-lock.json -u --no-error-on-unmatched-pattern"
   },
   "eslintConfig": {
