@@ -6,6 +6,11 @@
   height: 40vmin;
   pointer-events: none;
 }
+.github-link {
+  position: absolute;
+  top: 1.5em;
+  right: 2em;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .app-logo {

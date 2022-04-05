@@ -110,6 +110,15 @@ function App() {
     <>
       <div>
         <header className="app-header">MTG Inventory</header>
+        <a
+          className="github-link"
+          href="https://github.com/BarneyL01/react-mtg-inventory"
+        >
+          <img
+            alt="github"
+            src={process.env.PUBLIC_URL + "/GitHub-Mark-Light-32px.png"}
+          ></img>
+        </a>
         <div className="app flex-container">
           <div className="flex-left">
             <div>
