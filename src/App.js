@@ -100,8 +100,7 @@ function App() {
     setSelectedItem(selectedItem);
   };
   const addItem = (item) => {
-    setInventory([...mainInventory, item]);
-    // console.log("%c addItem:", "color:yellow;", { newArray });
+    setInventory([...mainInventory, {...item, id:mainInventory.length, Quantity: 1}]);
   };
 
   return (
