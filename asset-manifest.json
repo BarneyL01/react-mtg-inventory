@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/react-mtg-inventory/static/css/main.506a8a03.css",
-    "main.js": "/react-mtg-inventory/static/js/main.9ac30465.js",
+    "main.css": "/react-mtg-inventory/static/css/main.8c513147.css",
+    "main.js": "/react-mtg-inventory/static/js/main.9300a851.js",
     "static/js/978.98a9c6b5.chunk.js": "/react-mtg-inventory/static/js/978.98a9c6b5.chunk.js",
     "static/media/mana.svg?v=1.14.0": "/react-mtg-inventory/static/media/mana.a0c6f663e353a72aaf23.svg",
     "static/media/mplantin.svg?v=1.14.0": "/react-mtg-inventory/static/media/mplantin.83d7d29e550b1e99d824.svg",
@@ -12,12 +12,12 @@
     "static/media/mplantin.ttf?v=1.14.0": "/react-mtg-inventory/static/media/mplantin.9ccce3a24c7c9894b58e.ttf",
     "static/media/mplantin.woff?v=1.14.0": "/react-mtg-inventory/static/media/mplantin.f511062c132e4b72f9b8.woff",
     "index.html": "/react-mtg-inventory/index.html",
-    "main.506a8a03.css.map": "/react-mtg-inventory/static/css/main.506a8a03.css.map",
-    "main.9ac30465.js.map": "/react-mtg-inventory/static/js/main.9ac30465.js.map",
+    "main.8c513147.css.map": "/react-mtg-inventory/static/css/main.8c513147.css.map",
+    "main.9300a851.js.map": "/react-mtg-inventory/static/js/main.9300a851.js.map",
     "978.98a9c6b5.chunk.js.map": "/react-mtg-inventory/static/js/978.98a9c6b5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.506a8a03.css",
-    "static/js/main.9ac30465.js"
+    "static/css/main.8c513147.css",
+    "static/js/main.9300a851.js"
   ]
 }
