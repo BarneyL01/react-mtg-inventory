@@ -101,6 +101,13 @@ function App() {
         }
         setSelectedItem(selectedItem);
     };
+    const addItem = (item) => {
+        const newArray = [...mainInventory, item];
+        console.log("%c addItem:", "color:yellow;", {newArray});
+        
+
+    }
+
     return (
         <>
             <div>
@@ -137,7 +144,7 @@ function App() {
                     <div className="flex-right">
                         <ItemDetails item={selectedItem} />
                     </div>
-                    {isOpen && <AddCard setIsOpen={setIsOpen} />}
+                    {isOpen && <AddCard setIsOpen={setIsOpen} addItemFunction={addItem} />}
                 </div>
             </div>
         </>
