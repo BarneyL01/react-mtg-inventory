@@ -279,6 +279,15 @@
   position: relative;
 }
 
+@-moz-document url-prefix() {
+  .glass-modal {
+    background: rgba(122, 88, 128, 0.8);
+  }
+  .modal-content {
+    background: rgba(255, 255, 255, 0.8);
+  }
+}
+
 .modal-content header {
   color: indigo;
   font-size: large;
