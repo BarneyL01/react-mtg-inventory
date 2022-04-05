@@ -3,8 +3,9 @@ import PropTypes from "prop-types";
 import "../../node_modules/mana-font/css/mana.min.css";
 import { iconMap } from "../utils/IconMap";
 
-function ManaValueDisplay(props) {
-  let processString = props.manaValue;
+function ManaValueDisplay({ manaValue }) {
+  if (manaValue.length === 0) return;
+  let processString = manaValue;
   let count = 0;
   let display = [];
   // Split to inner symbols:
@@ -15,7 +16,7 @@ function ManaValueDisplay(props) {
   React.createElement("i", { key: count, className: "ms ms-1" }, null);
   manaSymbols.forEach((element) => {
     const icon = iconMap[element] ?? "";
-    const cn = "ms " + icon;
+    const cn = "ms ms-cost ms-shadow " + icon;
     display.push(
       React.createElement("i", { key: display.length, className: cn }, null)
     );
