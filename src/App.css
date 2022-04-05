@@ -301,8 +301,9 @@
     border: 1px solid indigo;
 }
 
-.unstyled-list li {
+.card-details-list li {
     list-style-type: none;
+    text-align: left;
 }
 
 .suggestion-list {

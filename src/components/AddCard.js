@@ -71,11 +71,11 @@ const AddCard = ({ setIsOpen }) => {
                             </div>
                         </div>
                         <div className="flex-equal">
-                            <ul className="unstyled-list">
-                                <li>Name: <strong>{card["Name"]}</strong></li>
+                            <ul className="card-details-list">
+                                <li><label>Name: </label><strong>{card["Name"]}</strong></li>
                                 {editions.length > 0 ? (
                                     <li>
-                                        <span>Editions:</span>
+                                        <label>Editions: </label>
                                         <select value={selectedEdition}>
                                             {editions.map((item) => {
                                                 return (
