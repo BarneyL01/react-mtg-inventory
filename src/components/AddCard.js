@@ -25,6 +25,7 @@ const AddCard = ({ setIsOpen, addItemFunction }) => {
       "Scryfall ID": cardDetails.id,
     };
     return loadedDetails;
+
   };
 
   const selectCard = async function (cardName) {
