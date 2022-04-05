@@ -1,327 +1,327 @@
 .app {
-    text-align: center;
+  text-align: center;
 }
 
 .app-logo {
-    height: 40vmin;
-    pointer-events: none;
+  height: 40vmin;
+  pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-    .app-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+  .app-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
 }
 
 .app-header {
-    background-color: #282c34;
-    min-height: 7vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+  background-color: #282c34;
+  min-height: 7vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
 .app-link {
-    color: #61dafb;
+  color: #61dafb;
 }
 
 .paste-box {
-    text-align: left;
+  text-align: left;
 }
 
 .paste-box-contents {
-    padding-left: 1em;
+  padding-left: 1em;
 }
 
 .paste-box-textarea {
-    width: 90%;
-    min-height: 20vh;
+  width: 90%;
+  min-height: 20vh;
 }
 
 .item-details {
-    text-align: left;
-    padding: 1em;
+  text-align: left;
+  padding: 1em;
 }
 .item-details-header {
-    font-size: larger;
-    font-weight: bold;
+  font-size: larger;
+  font-weight: bold;
 }
 .item-details-content {
-    text-align: left;
+  text-align: left;
 }
 
 @keyframes app-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .flex-container {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .flex-left {
-    width: 75%;
+  width: 75%;
 }
 
 .flex-right {
-    width: 25%;
+  width: 25%;
 }
 
 .flex-equal {
-    width: 50%;
+  width: 50%;
 }
 
 .card-image {
-    max-width: 100%;
-    margin: 0 auto;
-    border-radius: 15px;
+  max-width: 100%;
+  margin: 0 auto;
+  border-radius: 15px;
 }
 
 .card-image__empty {
-    min-height: 400px;
-    background-color: white;
-    margin: 0 20px 0 20%;
-    border-radius: 8px;
-    width: 300px;
+  min-height: 400px;
+  background-color: white;
+  margin: 0 20px 0 20%;
+  border-radius: 8px;
+  width: 300px;
 }
 
 .card-image__loaded {
-    margin: 0 20px 0 20%;
-    max-width: 400px;
+  margin: 0 20px 0 20%;
+  max-width: 400px;
 }
 
 .inventory-header {
-    width: 100%;
-    background-color: #20002c;
-    color: lavender;
-    min-height: 6vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
+  width: 100%;
+  background-color: #20002c;
+  color: lavender;
+  min-height: 6vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
 }
 
 /* Table */
 .inventory-table {
-    text-align: left;
-    border-collapse: collapse;
-    width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+  width: 100%;
 }
 
 .inventory-table th {
-    padding: 8px 15px;
+  padding: 8px 15px;
 }
 .inventory-table td {
-    padding: 4px 15px;
+  padding: 4px 15px;
 }
 
 .inventory-table th {
-    background-color: indigo;
-    color: azure;
+  background-color: indigo;
+  color: azure;
 }
 
 .inventory-table tr:nth-child(even) {
-    background: whitesmoke;
+  background: whitesmoke;
 }
 .inventory-table tr:nth-child(odd) {
-    background: #e1d3f3;
+  background: #e1d3f3;
 }
 
 .inventory-table tr:hover {
-    background-color: #c9acf1;
-    cursor: pointer;
+  background-color: #c9acf1;
+  cursor: pointer;
 }
 .inventory-section {
-    margin-bottom: 1em;
+  margin-bottom: 1em;
 }
 .section {
-    margin-bottom: 1em;
+  margin-bottom: 1em;
 }
 
 /* Accordion */
 
 .accordion-header {
-    border: 0;
-    margin-bottom: 10px;
-    padding: 20px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: inherit;
-    background-color: whitesmoke;
+  border: 0;
+  margin-bottom: 10px;
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: inherit;
+  background-color: whitesmoke;
 }
 
 .accordion-header:hover {
-    background-color: lavender;
-    cursor: pointer;
+  background-color: lavender;
+  cursor: pointer;
 }
 
 .accordion-header span {
-    color: orange;
-    font-weight: bold;
+  color: orange;
+  font-weight: bold;
 }
 
 .accordion-content {
-    transition: all 0.8s ease-out;
+  transition: all 0.8s ease-out;
 }
 
 .visible {
-    display: block;
+  display: block;
 }
 
 .not-visible {
-    display: none;
+  display: none;
 }
 /* Buttons */
 .action-button {
-    font-weight: bold;
-    padding: 10px 10px;
-    border-radius: 5px;
-    margin-right: 1em;
+  font-weight: bold;
+  padding: 10px 10px;
+  border-radius: 5px;
+  margin-right: 1em;
 }
 
 .primary-button {
-    color: white;
-    background-color: indigo;
-    border: 5px solid #d1bbe1;
+  color: white;
+  background-color: indigo;
+  border: 5px solid #d1bbe1;
 }
 .primary-button:hover {
-    background-color: #633c80;
-    cursor: pointer;
+  background-color: #633c80;
+  cursor: pointer;
 }
 
 .secondary-button {
-    color: indigo;
-    border: 2px solid indigo;
+  color: indigo;
+  border: 2px solid indigo;
 }
 
 .general-button {
-    min-width: 100px;
+  min-width: 100px;
 }
 
 .import-button {
-    padding-right: 40px;
+  padding-right: 40px;
 }
 .import-button::before {
-    font: normal normal normal 14px/1 Mana;
-    content: "\e61a";
-    padding-right: 20px;
-    padding-left: 10px;
+  font: normal normal normal 14px/1 Mana;
+  content: "\e61a";
+  padding-right: 20px;
+  padding-left: 10px;
 }
 
 .moxfield-button {
-    background-color: #731fa1;
+  background-color: #731fa1;
 }
 
 .moxfield-button::before {
-    content: "\e962";
+  content: "\e962";
 }
 
 .container {
-    position: relative;
+  position: relative;
 }
 
 .add-card-button {
-    position: absolute;
-    top: 1em;
-    right: 1em;
-    padding-top: 6px;
-    padding-bottom: 6px;
-    border-width: 3px;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  border-width: 3px;
 }
 
 .add-card-button::before {
-    content: "+";
+  content: "+";
 }
 
 /* * Modal */
 .glass-modal {
-    z-index: 10;
-    background: rgba(122, 88, 128, 0.47);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(11.3px);
-    width: 100vw;
-    height: 100%;
-    position: fixed;
+  z-index: 10;
+  background: rgba(122, 88, 128, 0.47);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(11.3px);
+  width: 100vw;
+  height: 100%;
+  position: fixed;
 }
 
 .modal-content {
-    z-index: 0;
-    background: rgba(255, 255, 255, 0.47);
-    border-radius: 8px;
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(11.3px);
-    margin-left: auto;
-    margin-right: auto;
-    width: 70vw;
-    margin-top: 3em;
-    padding: 2em 0;
-    position: relative;
+  z-index: 0;
+  background: rgba(255, 255, 255, 0.47);
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(11.3px);
+  margin-left: auto;
+  margin-right: auto;
+  width: 70vw;
+  margin-top: 3em;
+  padding: 2em 0;
+  position: relative;
 }
 
 .modal-content header {
-    color: indigo;
-    font-size: large;
-    font-weight: bold;
+  color: indigo;
+  font-size: large;
+  font-weight: bold;
 }
 
 .close-button {
-    background: none;
-    border: none;
-    position: absolute;
-    top: 1em;
-    right: 1em;
+  background: none;
+  border: none;
+  position: absolute;
+  top: 1em;
+  right: 1em;
 }
 .close-button::before {
-    content: "❌";
+  content: "❌";
 }
 
 .search-input {
-    width: 80%;
-    font-size: large;
-    background: rgba(255, 255, 255, 0.47);
-    border-radius: 3px;
-    border: 1px solid white;
-    padding: 0.5em;
-    color: indigo;
+  width: 80%;
+  font-size: large;
+  background: rgba(255, 255, 255, 0.47);
+  border-radius: 3px;
+  border: 1px solid white;
+  padding: 0.5em;
+  color: indigo;
 }
 
 .search-input::active {
-    border: 1px solid indigo;
+  border: 1px solid indigo;
 }
 
 .card-details-list li {
-    list-style-type: none;
-    text-align: left;
+  list-style-type: none;
+  text-align: left;
 }
 
 .suggestion-list {
-    margin-top: 0;
-    padding: 0;
-    width: 82%;
-    left: 9%;
-    position: absolute;
-    border: 1px solid indigo;
+  margin-top: 0;
+  padding: 0;
+  width: 82%;
+  left: 9%;
+  position: absolute;
+  border: 1px solid indigo;
 }
 
 .suggestion-item {
-    background-color: white;
-    list-style-type: none;
-    padding: 0.3rem 0.5rem;
-    text-align: left;
+  background-color: white;
+  list-style-type: none;
+  padding: 0.3rem 0.5rem;
+  text-align: left;
 }
 .suggestion-item:hover {
-    background-color: lavender;
-    cursor: pointer;
+  background-color: lavender;
+  cursor: pointer;
 }
