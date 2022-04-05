@@ -190,6 +190,10 @@
   margin-right: 1em;
 }
 
+.action-button:hover {
+  cursor: pointer;
+}
+
 .primary-button {
   color: white;
   background-color: indigo;
@@ -197,7 +201,6 @@
 }
 .primary-button:hover {
   background-color: #633c80;
-  cursor: pointer;
 }
 
 .secondary-button {
@@ -238,10 +241,16 @@
   padding-top: 6px;
   padding-bottom: 6px;
   border-width: 3px;
+  border-color: peachpuff;
+  background-color: darkorange;
+  color: black;
 }
 
 .add-card-button::before {
   content: "+";
+}
+.add-card-button:hover {
+  background-color: orange;
 }
 
 /* * Modal */
