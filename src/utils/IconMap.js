@@ -1,9 +1,9 @@
 export const iconMap = {
-  W: "ms-w",
-  U: "ms-u",
-  B: "ms-b",
-  R: "ms-r",
-  G: "ms-g",
+  W: "ms-w ms-ci-w",
+  U: "ms-u ms-ci-u",
+  B: "ms-b ms-ci-b",
+  R: "ms-r ms-ci-r",
+  G: "ms-g ms-ci-g",
   1: "ms-1",
   2: "ms-2",
   3: "ms-3",
@@ -24,4 +24,5 @@ export const iconMap = {
   18: "ms-18",
   19: "ms-19",
   20: "ms-20",
+  "G/W": "ms-gw ms-ci-gw",
 };

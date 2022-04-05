@@ -23,7 +23,7 @@ function ItemDetails(props) {
         <div className="item-details-content">
           <header className="item-details-header">{props.item.Name}</header>
           <div>
-            Mana Cost:
+            <span>Mana Cost: </span>
             <ManaValueDisplay manaValue={props.item.ManaValue} />
           </div>
           <div>Edition: {props.item.Edition}</div>
