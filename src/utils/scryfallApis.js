@@ -31,4 +31,18 @@ const scryfallGetCardExactName = async function (searchterm) {
         console.error({ error });
     }
 };
-export { scryfallAutocomplete, scryfallGetCardExactName };
+
+const scryfallGetPublishedCards = async function (requestUrl) {
+    try {
+        let response = await axios.get(requestUrl);
+
+        console.log("%c scryfallGetPublishedCards:", "color:lightgreen", {
+            d: response.data,
+        });
+        return response.data.data;
+    } catch (error) {
+        console.error({ error });
+    }
+};
+
+export { scryfallAutocomplete, scryfallGetCardExactName, scryfallGetPublishedCards };

@@ -2,10 +2,15 @@ import React from "react";
 import { useState } from "react";
 import PropTypes from "prop-types";
 import SearchBox from "./SearchBox";
-import { scryfallGetCardExactName } from "../utils/scryfallApis";
+import {
+    scryfallGetCardExactName,
+    scryfallGetPublishedCards,
+} from "../utils/scryfallApis";
 
 const AddCard = ({ setIsOpen }) => {
     const [card, setCard] = useState({});
+    const [editions, setEditions] = useState([]);
+    const [selectedEdition, setSelectedEdition] = useState("");
 
     const selectCard = async function (cardName) {
         let cardDetails = await scryfallGetCardExactName(cardName);
@@ -20,7 +25,16 @@ const AddCard = ({ setIsOpen }) => {
             "Edition code": cardDetails.set.toUpperCase(),
             "Collector's number": cardDetails.collector_number,
             "Mana Value": cardDetails.mana_cost,
+            "Scryfall ID": cardDetails.id,
         };
+        setSelectedEdition(cardDetails.id);
+        let editionsResponse = await scryfallGetPublishedCards(
+            cardDetails.prints_search_uri
+        );
+        setEditions([...editionsResponse]);
+        // console.log("%c selectCard-editionsResponse:", "color:hotpink", {
+        //     editionsResponse,
+        // });
 
         setCard(loadedDetails);
     };
@@ -57,7 +71,28 @@ const AddCard = ({ setIsOpen }) => {
                             </div>
                         </div>
                         <div className="flex-equal">
-                            Name: <strong>{card["Name"]}</strong>
+                            <ul className="unstyled-list">
+                                <li>Name: <strong>{card["Name"]}</strong></li>
+                                {editions.length > 0 ? (
+                                    <li>
+                                        <span>Editions:</span>
+                                        <select value={selectedEdition}>
+                                            {editions.map((item) => {
+                                                return (
+                                                    <option
+                                                        key={item.id}
+                                                        value={item.id}
+                                                    >
+                                                        {item.set_name}
+                                                    </option>
+                                                );
+                                            })}
+                                        </select>
+                                    </li>
+                                ) : (
+                                    <></>
+                                )}
+                            </ul>
                         </div>
                     </div>
                     <div>

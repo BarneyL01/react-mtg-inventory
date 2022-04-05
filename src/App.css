@@ -301,6 +301,10 @@
     border: 1px solid indigo;
 }
 
+.unstyled-list li {
+    list-style-type: none;
+}
+
 .suggestion-list {
     margin-top: 0;
     padding: 0;
