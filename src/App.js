@@ -100,7 +100,10 @@ function App() {
     setSelectedItem(selectedItem);
   };
   const addItem = (item) => {
-    setInventory([...mainInventory, {...item, id:mainInventory.length, Quantity: 1}]);
+    setInventory([
+      ...mainInventory,
+      { ...item, id: mainInventory.length, Quantity: 1 },
+    ]);
   };
 
   return (
