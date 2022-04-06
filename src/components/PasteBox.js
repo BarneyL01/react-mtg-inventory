@@ -48,12 +48,14 @@ function PasteBox(props) {
             className="paste-box-textarea"
             value={pasteContents}
             onChange={handleChange}
+            data-cy="paste-box-textarea"
           ></textarea>
         </div>
         <div>
           <button
             className="import-button primary-button action-button"
             onClick={handleImport}
+            data-cy="import"
           >
             Import
           </button>
