@@ -22,7 +22,9 @@ function ItemDetails(props) {
       <div className="item-details">
         <img className="card-image" src={props.item["Image URL"]}></img>
         <div className="item-details-content">
-          <header className="item-details-header">{props.item.Name}</header>
+          <header className="item-details-header" data-cy="item-details-name">
+            {props.item.Name}
+          </header>
           <div>
             <span>Mana Cost: </span>
             <ManaValueDisplay manaValue={props.item["Mana Value"]} />

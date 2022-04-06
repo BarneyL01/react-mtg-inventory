@@ -6,7 +6,7 @@ function ItemTable(props) {
   if (props.inventory !== undefined) {
     return (
       <>
-        <table className="inventory-table">
+        <table className="inventory-table" data-cy="inventory-table">
           <thead>
             <tr>
               <th>Name</th>
