@@ -7,7 +7,7 @@ import ItemTable from "./components/ItemTable";
 import AddCard from "./components/AddCard";
 import Papa from "papaparse";
 import ItemDetails from "./components/itemDetails";
-import axios from "axios";
+import { scryfallGetByScryfallId } from "./utils/scryfallApis";
 
 function App() {
   const [mainInventory, setInventory] = useState([]);
@@ -83,18 +83,9 @@ function App() {
         (mainInventory[itemId]["Image URL"] === undefined ||
           mainInventory[itemId]["Image URL"].length == 0)
       ) {
-        try {
-          let requestUrl = `https://api.scryfall.com/cards/${selectedItem.ScryfallId}?format=json`;
-          let response = await axios.get(requestUrl);
-
-          console.log("%c loadItem:", "color:lightgreen", {
-            d: response.data,
-          });
-          selectedItem.ImageUrl = response.data.image_uris.normal;
-          mainInventory[itemId]["Image URL"] = response.data.image_uris.normal;
-        } catch (error) {
-          console.error({ error });
-        }
+        let data = await scryfallGetByScryfallId(selectedItem.ScryfallId);
+        selectedItem.ImageUrl = data.image_uris.normal;
+        mainInventory[itemId]["Image URL"] = data.image_uris.normal;
       }
     }
     setSelectedItem(selectedItem);

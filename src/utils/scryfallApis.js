@@ -43,8 +43,23 @@ const scryfallGetPublishedCards = async function (requestUrl) {
   }
 };
 
+const scryfallGetByScryfallId = async function (scryfallId) {
+  try {
+    let requestUrl = baseUrl + `/cards/${scryfallId}?format=json`;
+    let response = await axios.get(requestUrl);
+
+    console.log("%c scryfallGetByScryfallId:", "color:lightgreen", {
+      d: response.data,
+    });
+    return response.data;
+  } catch (error) {
+    console.error({ error });
+  }
+};
+
 export {
   scryfallAutocomplete,
   scryfallGetCardExactName,
   scryfallGetPublishedCards,
+  scryfallGetByScryfallId,
 };
