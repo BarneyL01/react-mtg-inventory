@@ -74,7 +74,7 @@ function App() {
       mainInventory[selectedItemId]["Quantity"] + 1
     );
   };
-  const minusQuantity = (selectedItemId) => {
+  const minusQuantity = () => {
     // don't allow less than 1
     updateItem(
       selectedItemId,
