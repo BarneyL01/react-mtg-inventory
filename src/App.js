@@ -11,7 +11,7 @@ import { scryfallGetByScryfallId } from "./utils/scryfallApis";
 
 function App() {
   const [mainInventory, setInventory] = useState([]);
-  const [selectedItem, setSelectedItem] = useState({});
+  const [selectedItemId, setSelectedItemId] = useState(null);
   const [exportedInventory, setExportedInventory] = useState("");
   const [isOpen, setIsOpen] = useState(false);
 
@@ -20,6 +20,25 @@ function App() {
     isOpen && (document.body.style.overflow = "hidden");
     !isOpen && (document.body.style.overflow = "unset");
   }, [isOpen]);
+
+  useEffect(() => {
+    async function updateImageUrlFromScryfall() {
+      if (
+        mainInventory.length > 0 &&
+        mainInventory[selectedItemId] !== undefined &&
+        mainInventory[selectedItemId]["Scryfall ID"] !== undefined &&
+        mainInventory[selectedItemId]["Scryfall ID"].length > 0 &&
+        (mainInventory[selectedItemId]["Image URL"] === undefined ||
+          mainInventory[selectedItemId]["Image URL"].length == 0)
+      ) {
+        let data = await scryfallGetByScryfallId(
+          mainInventory[selectedItemId]["Scryfall ID"]
+        );
+        updateItem(selectedItemId, "Image URL", data.image_uris.normal);
+      }
+    }
+    updateImageUrlFromScryfall();
+  }, [selectedItemId]);
 
   const parseCsvToInventory = (inputCsv) => {
     let inventory = Papa.parse(inputCsv, {
@@ -48,47 +67,32 @@ function App() {
     console.log("%c inventory", "color:hotpink", { inventory });
     setExportedInventory(inventory);
   };
-  // let loadedId = "";
-  const addQuantity = (id) => {
-    mainInventory[id]["Quantity"] += 1;
-    loadItem(id);
-  };
-  const minusQuantity = (id) => {
-    // don't allow less than 1
-    mainInventory[id]["Quantity"] = Math.max(
-      1,
-      mainInventory[id]["Quantity"] - 1
+  const addQuantity = () => {
+    updateItem(
+      selectedItemId,
+      "Quantity",
+      mainInventory[selectedItemId]["Quantity"] + 1
     );
-    loadItem(id);
   };
-  const loadItem = async function (itemId) {
-    setSelectedItem({});
-    let selectedItem = {};
+  const minusQuantity = (selectedItemId) => {
+    // don't allow less than 1
+    updateItem(
+      selectedItemId,
+      "Quantity",
+      Math.max(1, mainInventory[selectedItemId]["Quantity"] - 1)
+    );
+  };
+  const updateItem = (itemId, itemFieldName, newValue) => {
+    const newInventory = mainInventory.map((obj) => {
+      if (obj.id === itemId)
+        return {
+          ...obj,
+          [itemFieldName]: newValue,
+        };
+      return obj;
+    });
 
-    if (mainInventory[itemId] !== undefined) {
-      selectedItem.Id = itemId;
-      selectedItem.Name = mainInventory[itemId]["Name"];
-      selectedItem.ManaValue = mainInventory[itemId]["Mana Value"] ?? "";
-      selectedItem.Edition = mainInventory[itemId]["Edition"] ?? "";
-      selectedItem.ScryfallId = mainInventory[itemId]["Scryfall ID"] ?? "";
-      selectedItem.ImageUrl = mainInventory[itemId]["Image URL"] ?? "";
-      selectedItem.Location = mainInventory[itemId]["Location"] ?? "";
-      selectedItem.Quantity = mainInventory[itemId]["Quantity"] ?? "";
-      selectedItem.AddQuantityFunction = addQuantity;
-      selectedItem.MinusQuantityFunction = minusQuantity;
-
-      // Only Load the Image URL if its blank:
-      if (
-        selectedItem.ScryfallId.length > 0 &&
-        (mainInventory[itemId]["Image URL"] === undefined ||
-          mainInventory[itemId]["Image URL"].length == 0)
-      ) {
-        let data = await scryfallGetByScryfallId(selectedItem.ScryfallId);
-        selectedItem.ImageUrl = data.image_uris.normal;
-        mainInventory[itemId]["Image URL"] = data.image_uris.normal;
-      }
-    }
-    setSelectedItem(selectedItem);
+    setInventory(newInventory);
   };
   const addItem = (item) => {
     setInventory([
@@ -126,7 +130,7 @@ function App() {
               <div className="inventory-section">
                 <ItemTable
                   inventory={mainInventory}
-                  loadItemFunction={loadItem}
+                  selectItemFunction={setSelectedItemId}
                 />
               </div>
             </div>
@@ -138,7 +142,11 @@ function App() {
             </div>
           </div>
           <div className="flex-right">
-            <ItemDetails item={selectedItem} />
+            <ItemDetails
+              item={mainInventory[selectedItemId]}
+              AddQuantityFunction={addQuantity}
+              MinusQuantityFunction={minusQuantity}
+            />
           </div>
           {isOpen && (
             <AddCard setIsOpen={setIsOpen} addItemFunction={addItem} />

@@ -4,27 +4,28 @@ import ManaValueDisplay from "./ManaValueDisplay";
 
 function ItemDetails(props) {
   const addQuantity = () => {
-    props.item.AddQuantityFunction(props.item.Id);
+    console.log("addQuantity");
+    props.AddQuantityFunction();
   };
   const minusQuantity = () => {
     if (props.item.Quantity > 1) {
-      props.item.MinusQuantityFunction(props.item.Id);
+      props.MinusQuantityFunction();
     }
   };
 
   if (
     props.item !== undefined &&
-    props.item.ImageUrl !== undefined &&
-    props.item.ImageUrl.length > 0
+    props.item["Image URL"] !== undefined &&
+    props.item["Image URL"].length > 0
   ) {
     return (
       <div className="item-details">
-        <img className="card-image" src={props.item.ImageUrl}></img>
+        <img className="card-image" src={props.item["Image URL"]}></img>
         <div className="item-details-content">
           <header className="item-details-header">{props.item.Name}</header>
           <div>
             <span>Mana Cost: </span>
-            <ManaValueDisplay manaValue={props.item.ManaValue} />
+            <ManaValueDisplay manaValue={props.item["Mana Value"]} />
           </div>
           <div>Edition: {props.item.Edition}</div>
           <div>Location: {props.item.Location}</div>
@@ -42,16 +43,16 @@ function ItemDetails(props) {
 
 ItemDetails.propTypes = {
   item: PropTypes.shape({
-    Id: PropTypes.number,
+    id: PropTypes.number,
     Name: PropTypes.string,
     Edition: PropTypes.string,
-    ManaValue: PropTypes.string,
-    ImageUrl: PropTypes.string,
+    "Mana Value": PropTypes.string,
+    "Image URL": PropTypes.string,
     Location: PropTypes.string,
     Quantity: PropTypes.number,
-    AddQuantityFunction: PropTypes.func,
-    MinusQuantityFunction: PropTypes.func,
   }),
+  AddQuantityFunction: PropTypes.func,
+  MinusQuantityFunction: PropTypes.func,
 };
 
 export default ItemDetails;

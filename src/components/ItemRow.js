@@ -5,7 +5,7 @@ import ManaValueDisplay from "./ManaValueDisplay";
 function ItemRow(props) {
   const lookupItem = () => {
     if (props.item !== undefined && props.item.id !== undefined) {
-      props.loadItem(props.item.id);
+      props.selectItemFunction(props.item.id);
     }
   };
   if (props.item !== undefined && props.item.Name !== undefined) {
@@ -27,7 +27,7 @@ function ItemRow(props) {
 
 ItemRow.propTypes = {
   item: PropTypes.object,
-  loadItem: PropTypes.func,
+  selectItemFunction: PropTypes.func.isRequired,
 };
 
 export default ItemRow;

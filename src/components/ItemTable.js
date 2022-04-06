@@ -22,7 +22,7 @@ function ItemTable(props) {
               <ItemRow
                 key={item.id}
                 item={item}
-                loadItem={props.loadItemFunction}
+                selectItemFunction={props.selectItemFunction}
               />
             ))}
           </tbody>
@@ -35,7 +35,7 @@ function ItemTable(props) {
 
 ItemTable.propTypes = {
   inventory: PropTypes.array.isRequired,
-  loadItemFunction: PropTypes.func.isRequired,
+  selectItemFunction: PropTypes.func.isRequired,
 };
 
 export default ItemTable;
