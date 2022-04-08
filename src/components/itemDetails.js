@@ -36,6 +36,8 @@ function ItemDetails(props) {
             <EditLocation
               mainInventory={props.mainInventory}
               currentLocation={props.item.Location}
+              itemId={props.item.id}
+              UpdateItemFunction={props.UpdateItemFunction}
             />
           </div>
           {/* <div>Location: {props.item.Location}</div> */}
@@ -64,6 +66,7 @@ ItemDetails.propTypes = {
   AddQuantityFunction: PropTypes.func,
   MinusQuantityFunction: PropTypes.func,
   mainInventory: PropTypes.array,
+  UpdateItemFunction: PropTypes.func,
 };
 
 export default ItemDetails;

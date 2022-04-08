@@ -147,6 +147,7 @@ function App() {
               AddQuantityFunction={addQuantity}
               MinusQuantityFunction={minusQuantity}
               mainInventory={mainInventory}
+              UpdateItemFunction={updateItem}
             />
           </div>
           {isOpen && (
