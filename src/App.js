@@ -146,6 +146,7 @@ function App() {
               item={mainInventory[selectedItemId]}
               AddQuantityFunction={addQuantity}
               MinusQuantityFunction={minusQuantity}
+              mainInventory={mainInventory}
             />
           </div>
           {isOpen && (

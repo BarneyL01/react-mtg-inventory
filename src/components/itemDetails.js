@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ManaValueDisplay from "./ManaValueDisplay";
+import EditLocation from "./EditLocation";
 
 function ItemDetails(props) {
   const addQuantity = () => {
@@ -30,7 +31,14 @@ function ItemDetails(props) {
             <ManaValueDisplay manaValue={props.item["Mana Value"]} />
           </div>
           <div>Edition: {props.item.Edition}</div>
-          <div>Location: {props.item.Location}</div>
+          <div>
+            Location:
+            <EditLocation
+              mainInventory={props.mainInventory}
+              currentLocation={props.item.Location}
+            />
+          </div>
+          {/* <div>Location: {props.item.Location}</div> */}
           <div>Quantity: {props.item.Quantity}</div>
           <div>
             <button onClick={addQuantity}>add</button>
@@ -55,6 +63,7 @@ ItemDetails.propTypes = {
   }),
   AddQuantityFunction: PropTypes.func,
   MinusQuantityFunction: PropTypes.func,
+  mainInventory: PropTypes.array,
 };
 
 export default ItemDetails;
